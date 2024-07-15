@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Battle_MakeBoneWallFollowBoard",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Battle_MakeBoneWallFollowBoard",
+  "parent":{
+    "name":"BoneWall",
+    "path":"folders/Scripts/Battle/Bullet/Bone/BoneWall.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BulbMakeBitmask",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BulbMakeBitmask",
+  "parent":{
+    "name":"Bulb",
+    "path":"folders/Bulb.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

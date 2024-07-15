@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GetFont_English",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GetFont_English",
+  "parent":{
+    "name":"Font",
+    "path":"folders/Scripts/Localization/Font.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

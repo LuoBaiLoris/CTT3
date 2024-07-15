@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"FSS_FishEye",
+  "name":"FSS_FishEye",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/FrozenShaders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

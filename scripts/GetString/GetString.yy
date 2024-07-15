@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GetString",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GetString",
+  "parent":{
+    "name":"String",
+    "path":"folders/Scripts/Localization/String.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

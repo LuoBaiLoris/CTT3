@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"FSS_Gray",
+  "name":"FSS_Gray",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/FrozenShaders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

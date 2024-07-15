@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"animExist",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"animExist",
+  "parent":{
+    "name":"AnimSystem",
+    "path":"folders/AnimSystem.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

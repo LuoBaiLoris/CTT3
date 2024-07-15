@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Player_HurtKR_Normal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Player_HurtKR_Normal",
+  "parent":{
+    "name":"Stat",
+    "path":"folders/Scripts/Player/Stat.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FS_FishEye",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FS_FishEye",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/FrozenShaders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,1 @@
+if(auto_destroy){instance_destroy()}

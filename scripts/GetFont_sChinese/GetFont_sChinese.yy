@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GetFont_sChinese",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GetFont_sChinese",
+  "parent":{
+    "name":"Font",
+    "path":"folders/Scripts/Localization/Font.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

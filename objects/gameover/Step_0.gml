@@ -1,0 +1,1 @@
+window_set_caption(GetString("str_gameover_window"))

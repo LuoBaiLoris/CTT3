@@ -1,0 +1,1 @@
+text=GetString("str_room_lobby_save")

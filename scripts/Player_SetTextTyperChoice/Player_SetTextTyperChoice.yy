@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Player_SetTextTyperChoice",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Player_SetTextTyperChoice",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Scripts/Player.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

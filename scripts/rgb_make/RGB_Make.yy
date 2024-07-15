@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"RGB_Make",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"RGB_Make",
+  "parent":{
+    "name":"Effect",
+    "path":"folders/Scripts/Effect.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

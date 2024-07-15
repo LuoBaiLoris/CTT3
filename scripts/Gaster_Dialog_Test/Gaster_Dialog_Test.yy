@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Gaster_Dialog_Test",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Gaster_Dialog_Test",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GetSprite_sChinese",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GetSprite_sChinese",
+  "parent":{
+    "name":"Sprite",
+    "path":"folders/Scripts/Localization/Sprite.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

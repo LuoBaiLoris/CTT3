@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_voice",
+  "name":"shd_voice",
+  "parent":{
+    "name":"yst",
+    "path":"folders/Shaders/yst.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

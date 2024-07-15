@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_2Dlight",
+  "name":"shd_2Dlight",
+  "parent":{
+    "name":"yst",
+    "path":"folders/Shaders/yst.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

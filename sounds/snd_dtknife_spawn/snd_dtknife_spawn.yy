@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_dtknife_spawn",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.110204,
+  "name":"snd_dtknife_spawn",
+  "parent":{
+    "name":"battle",
+    "path":"folders/Sounds/battle.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_dtknife_spawn.wav",
+  "type":0,
+  "volume":1.0,
+}

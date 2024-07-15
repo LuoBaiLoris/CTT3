@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FS_Obscure",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FS_Obscure",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/FrozenShaders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

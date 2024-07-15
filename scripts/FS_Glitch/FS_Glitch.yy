@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FS_Glitch",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FS_Glitch",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/FrozenShaders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

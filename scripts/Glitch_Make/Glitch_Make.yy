@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Glitch_Make",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Glitch_Make",
+  "parent":{
+    "name":"Effect",
+    "path":"folders/Scripts/Effect.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

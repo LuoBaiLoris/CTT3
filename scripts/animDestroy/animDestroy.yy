@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"animDestroy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"animDestroy",
+  "parent":{
+    "name":"AnimSystem",
+    "path":"folders/AnimSystem.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

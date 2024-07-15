@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Battle_MakeBoneWallBottomAnim",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Battle_MakeBoneWallBottomAnim",
+  "parent":{
+    "name":"Anim",
+    "path":"folders/Scripts/Battle/Bullet/Bone/BoneWall/Anim.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

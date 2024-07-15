@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Anim_Uninit",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Anim_Uninit",
+  "parent":{
+    "name":"GMUAnim",
+    "path":"folders/AnimSystem/GMUAnim.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
