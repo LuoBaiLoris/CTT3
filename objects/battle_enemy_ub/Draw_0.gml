@@ -20,6 +20,22 @@ if (type == 0)
 }
 if (type == 1)
 {
+	draw_sprite_ext(spr_glow, 0, x, y-70, 0.3, 0.2, 0, c_white, 1);
+	
+	draw_sprite_ext(Spr_Grad, 0, x, y-200, 1, 1.5, 0, c_yellow, _alpha);
+	draw_sprite_ext(Spr_Grad, 0, x-160, y-70,1, 1.5, 90, c_yellow, _alpha);
+	
+	draw_sprite_ext(Spr_Grad, 0, x, y+40, 1, 1.5, 180, c_aqua, _alpha);
+	draw_sprite_ext(Spr_Grad, 0, x+160, y-70,1, 1.5, 270, c_aqua, _alpha);
+
+	var i = 0;
+	repeat (array_length(squs))
+	{
+		var spr = squs[i];
+		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, spr.scale, spr.scale, spr.angle, spr.blend, spr.alpha);
+		i ++;
+	}	
+	
 	
 	var i = 0;
 	repeat (array_length(array))

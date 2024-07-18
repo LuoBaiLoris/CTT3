@@ -1,6 +1,6 @@
 /// @description Insert description here
 live_auto_call
-x = 320-240
+
 type = 0;
 time = 0;
 body = 

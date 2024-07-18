@@ -1,4 +1,5 @@
 live_auto_call
+
 if (!_gui) 
 {
 	if (mask)
@@ -10,7 +11,7 @@ if (!_gui)
 			surface_reset_target();
 		}
 	}
-	else
+	else 
 	{
 		draw_self();
 	}

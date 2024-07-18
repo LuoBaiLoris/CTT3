@@ -25,7 +25,7 @@ if (type == 1)
 	{
 		var spr = array[i];
 		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, spr.scale, spr.scale, spr.angle, c_white, spr.alpha);
-		if (i==0)
+		if (i==1)
 		{
 			draw_sprite_pos(Spr_CnrP3_Legs1, 0, legs.x0-46, legs.y0-33*2, legs.x0+46, legs.y0-33*2, legs.x1+46, legs.y1, legs.x1-46, legs.y1, image_alpha)
 		}

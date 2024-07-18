@@ -46,8 +46,8 @@ Battle_SetPlayerTempInv(0)
 global.kr = true;
 battle.kr=true
 
-cotv = instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cotv);
-cnr = instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cnr);
-ub = instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_ub);
-ukb = instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_ukb);
-gaster = instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_gaster);
+instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cotv);
+instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cnr);
+instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_ub);
+instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_ukb);
+instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_gaster);

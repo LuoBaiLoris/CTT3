@@ -1,6 +1,6 @@
 /// @description Insert description here
 live_auto_call
-x = 320-80
+
 type = 0;
 time = 0;
 body = 
@@ -63,4 +63,26 @@ anim0 =
 	sprite : Spr_COTVP3_Animation,
 	alpha : 1
 }
+cnrSoul = 
+{
+	x : x,
+	y : y,
+	angle : image_angle,
+	scale : 2,
+	index : 0, 
+	sprite : Spr_CNRSoul,
+	alpha : 1
+}
+cnrLost = 
+{
+	x : x,
+	y : y,
+	angle : image_angle,
+	scale : 2,
+	index : 0, 
+	sprite : Spr_CnrP3_Anim,
+	alpha : 0
+}
+cnrSoul.x = x+45;
+cnrSoul.y = y-150;
 array = [body, head, anim0];

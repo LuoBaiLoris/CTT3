@@ -337,7 +337,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.1.160",
+    "IDEVersion":"2024.6.2.162",
   },
   "name":"UndergameEngine_Template",
   "resources":[
@@ -2337,6 +2337,7 @@
     {"id":{"name":"Spr_Yes","path":"sprites/Spr_Yes/Spr_Yes.yy",},},
     {"id":{"name":"sPx2c","path":"sprites/sPx2c/sPx2c.yy",},},
     {"id":{"name":"sPx2d","path":"sprites/sPx2d/sPx2d.yy",},},
+    {"id":{"name":"sRing","path":"sprites/sRing/sRing.yy",},},
     {"id":{"name":"sSlice","path":"sprites/sSlice/sSlice.yy",},},
     {"id":{"name":"sStar","path":"sprites/sStar/sStar.yy",},},
     {"id":{"name":"sThorn","path":"sprites/sThorn/sThorn.yy",},},

@@ -32,6 +32,7 @@ if(room!=room_shop){
 global.shop=SHOP.TEST}
 
 if(keyboard_check_pressed(vk_f2)){
+	SetTimer(0);
 	TweenDestroy(all);
 	room_restart();
 }
@@ -102,12 +103,6 @@ CC_Add(GetString("str_mobile_control_current_darknslim"))
 }
 }
 
-if(instance_exists(battle_soul_yellow)||instance_exists(battle_soul_yellow_aqua)||instance_exists(battle_soul_yellow_orange)||instance_exists(battle_soul_yellow_aqua_orange)){
-cursor_sprite=noone
-}else if(display_mouse_get_x()=window_get_x()+window_mouse_get_x()&&display_mouse_get_y()=window_get_y()+window_mouse_get_y()){
-cursor_sprite=spr_cursor
-}else{
-cursor_sprite=noone}
 
 //边框
 if(Flag_Get(FLAG_TYPE.SETTINGS,FLAG_SETTINGS.BORDER,0)>0){

@@ -1,6 +1,6 @@
 /// @description Insert description here
 live_auto_call
-x = 320+240;
+
 type = 0;
 time = 0;
 body = 
@@ -144,5 +144,27 @@ anim6 =
 	sprite : Spr_UbP3_Animation2,
 	alpha : 1
 }
-
+squs = [];
+var i = 0;
+repeat(8)
+{
+	var squ = 
+	{
+		x : x+1000000000,
+		y : y,
+		angle : image_angle,
+		scale : 0,
+		index : 0, 
+		sprite : sBorder,
+		blend : c_yellow,
+		alpha : 0
+	}
+	squs[i] = squ;
+	i ++;
+}
+_len = 0;
+_spd = 0;
+_scale = 0;
+_start = false;
+_alpha = 0;
 array = [body, head];

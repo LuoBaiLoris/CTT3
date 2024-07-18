@@ -1,6 +1,6 @@
 live_auto_call
 image_angle += _rotate;
-
+//show_debug_message(1);
 part_system_depth(_partSys, depth+1 );
 part_type_sprite(_partType, sprite_index, false, false, false);
 part_type_size(_partType, 1, 1, 0, 0);

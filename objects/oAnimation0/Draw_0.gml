@@ -6,7 +6,7 @@ if (time < 1460)
 	draw_sprite_ext(sPx2c, 0, 320, 240, 640, 480, 0, c_white, 1);
 	draw_sprite_ext(sGlowAround, 0, 320, 240, 1, 1, 0, c_black, 0.8);
 }
-if (time > 1460	)
+if (time > 1460)
 {
 	var i = 0;
 	repeat (array_length(array))
@@ -16,3 +16,5 @@ if (time > 1460	)
 		i ++;
 	}
 }
+
+//draw_sprite(spr_logo, 0, 320,240)

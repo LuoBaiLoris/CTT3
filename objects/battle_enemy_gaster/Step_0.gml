@@ -2,7 +2,6 @@
 live_auto_call
 //show_debug_message(1)
 time ++;
-type = 0;
 if (type == 0)
 {
 	array = [body,hand0,hand1,hand2,hand3,hand4,hand5,head];

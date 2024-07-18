@@ -2056,6 +2056,7 @@
     {"name":"Spr_Yes","order":19,"path":"sprites/Spr_Yes/Spr_Yes.yy",},
     {"name":"sPx2c","order":38,"path":"sprites/sPx2c/sPx2c.yy",},
     {"name":"sPx2d","order":37,"path":"sprites/sPx2d/sPx2d.yy",},
+    {"name":"sRing","order":41,"path":"sprites/sRing/sRing.yy",},
     {"name":"sSlice","order":23,"path":"sprites/sSlice/sSlice.yy",},
     {"name":"sStar","order":22,"path":"sprites/sStar/sStar.yy",},
     {"name":"sThorn","order":23,"path":"sprites/sThorn/sThorn.yy",},

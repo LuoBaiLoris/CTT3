@@ -22,7 +22,7 @@ function inRange(_val, _min, _max, _space = 0)
 {
 	if (_space > 0)
 	{
-		if ((_val % _space == 0) && (_val > _min && _val < _max ))
+		if ((_val % _space == 0) && (_val >= _min && _val < _max ))
 		{
 			return true;
 		}
@@ -33,7 +33,7 @@ function inRange(_val, _min, _max, _space = 0)
 	}
 	else
 	{
-		if ((_val > _min) && (_val < _max ))
+		if ((_val >= _min) && (_val < _max ))
 		{
 			return true;
 		}

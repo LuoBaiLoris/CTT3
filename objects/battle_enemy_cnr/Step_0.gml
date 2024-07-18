@@ -3,7 +3,8 @@ live_auto_call
 //show_debug_message(1)
 
 time ++;
-type = 0;
+legs.x1 = x;
+legs.y1 = y;
 if (type == 0)
 {
 	array = [capes, body, head, lost];
