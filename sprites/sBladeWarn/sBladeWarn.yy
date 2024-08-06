@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"sBladeWarn",
-  "bboxMode":1,
+  "bboxMode":0,
   "bbox_bottom":49,
   "bbox_left":0,
   "bbox_right":9,

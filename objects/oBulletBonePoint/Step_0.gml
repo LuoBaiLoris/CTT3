@@ -4,7 +4,10 @@ function MOVING()
 {
 	return (keyboard_check(vk_left) ||keyboard_check(vk_down) ||keyboard_check(vk_right) ||keyboard_check(vk_up))
 }
-
+if (place_meeting(x, y, battle_soul))
+{
+	event_user(0);
+}
 var tarClrs = [[255,255,255],[0,255,255],[242,135,33]]
 
 var lerpSpd = 1;

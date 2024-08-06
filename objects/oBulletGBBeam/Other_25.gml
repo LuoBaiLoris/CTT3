@@ -2,7 +2,7 @@
 live_auto_call
 if (_canHurt)
 {
-	show_debug_message(1)
+
 	if (_color == 0)
 	{
 		Battle_CallSoulEventHurt();

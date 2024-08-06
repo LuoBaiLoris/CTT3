@@ -46,3 +46,7 @@ if (_canHurt)
 		}
 	}
 }
+else
+{
+	sprite_index = sNil;
+}

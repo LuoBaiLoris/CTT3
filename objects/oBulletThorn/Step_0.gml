@@ -5,6 +5,10 @@ function MOVING()
 {
 	return (keyboard_check(vk_left) ||keyboard_check(vk_down) ||keyboard_check(vk_right) ||keyboard_check(vk_up))
 }
+if (place_meeting(x, y, battle_soul))
+{
+	event_user(0);
+}
 if (_canHurt)
 {
 

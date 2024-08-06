@@ -14,10 +14,7 @@
     "name":"Bullet",
     "path":"folders/Objects/Battle/Bullet/Bullet.yy",
   },
-  "parentObjectId":{
-    "name":"oBullet",
-    "path":"objects/oBullet/oBullet.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

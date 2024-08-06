@@ -55,7 +55,7 @@ function boneCreate(_x, _y, _angle, _length, _point = false, _color = 0, _atDest
 	inst.mask = _mask;
 	if (!is_bool(_atDest))
 	{
-		inst.alarm[0] = _atDest;
+		inst.alarm[1] = _atDest;
 	}
 	else
 	{
@@ -75,12 +75,35 @@ function boneCreate(_x, _y, _angle, _length, _point = false, _color = 0, _atDest
 	}
 	return inst;
 }
+function boneRing(_x,_y, _number,_offset, _length, _rotate, _color = 0, _point = true, _angle = 0, _mask = true)
+{
+	var br = instance_create_depth(_x, _y, DEPTH_BATTLE.BULLET_OUTSIDE_HIGH, oBoneRing);
+	br.x = _x;
+	br.y = _y;
+	br.number = _number;
+	br.offset = _offset;
+	br.rotate = _rotate;
+	br._color = _color;
+	br._point = _point;
+	br.length = _length;
+	br.angle = _angle;
+	br.mask = _mask;
+	with(br)
+	{
+		for(var i = 0;i<number;i++)
+		{
+			var bone = boneCreate(x+lengthdir_x(offset, image_angle+i*360/number), y+lengthdir_y(offset, image_angle+i*360/number),image_angle+i*360/number+90+angle, length, _point, _color, infinity, mask);
+			array[i] = bone;
+		}
+	}
+	return br;
+}
 function gbCreate(_preTime, _preX, _preY, _preAngle, _tarX, _tarY, _tarAngle, _xScale, _yScale, _waitTime = 30, _keepTime = 30)
 {
 	live_auto_call
-	//var _TWEEN = ANIM_TWEEN.EXPO;
+	var _TWEEN = ANIM_TWEEN.EXPO;
 	var _INDEX = 1;
-	var _TWEEN = acGB;
+	//	var _TWEEN = acGB;
 	var _INDEX = 0;
 	var inst = instance_create_depth(_preX, _preY, LAYER.J, oBulletGB);
 	inst.angle = _preAngle;
@@ -88,10 +111,10 @@ function gbCreate(_preTime, _preX, _preY, _preAngle, _tarX, _tarY, _tarAngle, _x
 	inst.angle = _preAngle;
 	inst.image_xscale = _xScale;
 	inst.image_yscale = _yScale;
-	TweenFire(inst.center, acGB, "once", false, 0, _preTime, "x", _preX, _tarX);
-	TweenFire(inst.center, acGB, "once", false, 0, _preTime, "y", _preY, _tarY);
-	TweenFire(inst.center, acGB, "once", false, 0, _preTime, "angle", _preAngle, _tarAngle);
-	TweenFire(inst.center, acGB, "once", false, 0, _preTime, "image_angle", _preAngle, _tarAngle);
+	TweenFire(inst.center, EaseOutExpo, "once", false, 0, _preTime, "x", _preX, _tarX);
+	TweenFire(inst.center, EaseOutExpo, "once", false, 0, _preTime, "y", _preY, _tarY);
+	//TweenFire(inst.center, EaseOutExpo, "once", false, 0, _preTime, "angle", _preAngle, _tarAngle);
+	TweenFire(inst.center, EaseOutExpo, "once", false, 0, _preTime, "image_angle", _preAngle, _tarAngle);
 	//animCreate(inst.center, "x", _TWEEN, _INDEX, 1, _preX, _tarX, _preTime);
 	//animCreate(inst.center, "y", _TWEEN, _INDEX, 1, _preY, _tarY, _preTime);
 	//animCreate(inst.center, "angle", _TWEEN, _INDEX, 1, _preAngle, _tarAngle, _preTime);
@@ -111,7 +134,7 @@ function fireCreate(_x, _y, _angle, _size, _color = 0, _dest = infinity, _mask =
 	inst.angle = _angle;
 	inst._color = _color;
 	inst.mask = _mask;
-	inst.alarm[0] = _dest;
+	inst.alarm[1] = _dest;
 	switch(_color)
 	{
 		case 0:
@@ -135,7 +158,7 @@ function starCreate(_x, _y, _angle, _size, _color = 0, _dest = infinity, _mask =
 	inst.image_angle = _angle;
 	inst.mask = _mask;
 	inst._color = _color;
-	inst.alarm[0] = _dest;
+	inst.alarm[1] = _dest;
 	switch(_color)
 	{
 		case 0:
@@ -153,11 +176,12 @@ function starCreate(_x, _y, _angle, _size, _color = 0, _dest = infinity, _mask =
 	inst.image_yscale = _size;
 	return inst;
 }
-function bladeCreate(_x, _y, _angle, _size, _color = 0)
+function bladeCreate(_x, _y, _angle, _size, _color = 0, _warnTime = 20)
 {
 	var inst = instance_create_depth(_x, _y, LAYER.G, oBlade);
 	
 	inst.image_angle = _angle;
+	inst._warnTime = _warnTime;
 	inst._color = _color;
 	switch(_color)
 	{
@@ -355,7 +379,7 @@ function platCreate(_x, _y, _angle, _length, _type = 0, _dest = infinity, _mask 
 	inst.angle = _angle;
 	inst.type = _type;
 	inst.mask = _mask;
-	inst.alarm[0] = _dest;
+	inst.alarm[1] = _dest;
 	inst.length = _length;
 	return inst;
 }
@@ -462,11 +486,11 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 		
 		animCreate(inst, "x", ANIM_TWEEN.SINE, 0, 0, inst.x-lengthdir_x(_length, _dir+getArenaAngle()), lengthdir_x(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
 		animCreate(inst, "y", ANIM_TWEEN.SINE, 0, 0, inst.y-lengthdir_y(_length, _dir+getArenaAngle()), lengthdir_y(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
-		inst.alarm[0] = _warnTime+_keepTime+_moveTime*2
+		inst.alarm[1] = _warnTime+_keepTime+_moveTime*2
 		i ++;
 	}
 	var warn = spriteCreate(sPx2d, _x-lengthdir_x(_length, _dir+getArenaAngle()), _y-lengthdir_y(_length, _dir+getArenaAngle()), LAYER.G, true, _dir+getArenaAngle()-90, 1, getArenaWidth(), 1);
-	warn.alarm[0] = _warnTime+_moveTime;
+	warn.alarm[1] = _warnTime+_moveTime;
 	return _bones
 }
 function thornCreate(_preX, _preY, _preAngle, _tarX, _tarY, _tarAngle, _moveTime = 60, _spd = 8)

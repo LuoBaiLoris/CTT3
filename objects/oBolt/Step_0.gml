@@ -1,5 +1,6 @@
 if (live_call()) return live_result;
 event_inherited();
+time ++;
 warnTimer --;
 index += 0.2;
 if (p == 0)

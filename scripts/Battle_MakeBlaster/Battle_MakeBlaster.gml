@@ -16,7 +16,7 @@ function Battle_MakeBlaster()
     var AD = 1
     var BAD = 1
     var SPR = spr_gb
-	var OBJ = battle_bullet_blaster
+	var OBJ = battle_bullet_blaster	
 	var SHAKE = true
 	var BEAM_SPR = spr_beam
     if (argument_count >= 13)

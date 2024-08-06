@@ -1,21 +1,26 @@
+live_auto_call
 time += 1
+
 if (time <= move_time)
 {
     var tg = time
     var cg = (xx - xstart)
     var dg = move_time
-    tg = ((tg / dg) - 1)
-    x = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + xstart)
+    //tg = ((tg / dg) - 1)
+	x = EaseOutExpo(tg, xstart, cg, dg);
+    //x = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + xstart)
     tg = time
     cg = (yy - ystart)
     dg = move_time
-    tg = ((tg / dg) - 1)
-    y = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + ystart)
+    //tg = ((tg / dg) - 1)
+	y = EaseOutExpo(tg, ystart, cg, dg);
+    //y = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + ystart)
     tg = time
     cg = (idealrot - ag_start)
     dg = move_time
-    tg = ((tg / dg) - 1)
-    image_angle = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + ag_start)
+    //tg = ((tg / dg) - 1)
+	image_angle = EaseOutExpo(tg, ag_start, cg, dg);
+   // image_angle = (((-cg) * ((((tg * tg) * tg) * tg) - 1)) + ag_start)
 }
 if (time == (move_time + pause))
     image_index++

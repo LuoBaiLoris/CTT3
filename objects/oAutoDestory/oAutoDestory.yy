@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"oBulletStarShd",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"oAutoDestory",
+  "eventList":[],
   "managed":true,
-  "name":"oBulletStarShd",
+  "name":"oAutoDestory",
   "overriddenProperties":[],
   "parent":{
     "name":"Bullet",
-    "path":"folders/Objects/Battle/Bullet/Bullet.yy",
+    "path":"folders/Objects/Battle/Bullet.yy",
   },
   "parentObjectId":null,
   "persistent":false,

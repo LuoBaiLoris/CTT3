@@ -4,8 +4,8 @@ time = -1;
 Battle_SetTurnInfo(BATTLE_TURN.TIME,-1)
 Battle_SetTurnInfo(BATTLE_TURN.BOARD_UP,65)
 Battle_SetTurnInfo(BATTLE_TURN.BOARD_DOWN,65)
-Battle_SetTurnInfo(BATTLE_TURN.BOARD_LEFT,283)
-Battle_SetTurnInfo(BATTLE_TURN.BOARD_RIGHT,283)
+Battle_SetTurnInfo(BATTLE_TURN.BOARD_LEFT,65)
+Battle_SetTurnInfo(BATTLE_TURN.BOARD_RIGHT,65)
 audio = audio_play_sound(bgmOverinterapcide, 0, 1);
 Player_SetHpMax(32);
 Player_SetHp(32);

@@ -1,5 +1,6 @@
 live_auto_call
 event_inherited();
+
 length = 0;
 mask = false;
 _sprite_index = sBone;
