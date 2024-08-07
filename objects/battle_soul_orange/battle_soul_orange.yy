@@ -5,6 +5,7 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"battle_soul_orange",
@@ -38,9 +39,6 @@
     "name":"spr_battle_soul_orange",
     "path":"sprites/spr_battle_soul_orange/spr_battle_soul_orange.yy",
   },
-  "spriteMaskId":{
-    "name":"spr_battle_soul_mask",
-    "path":"sprites/spr_battle_soul_mask/spr_battle_soul_mask.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

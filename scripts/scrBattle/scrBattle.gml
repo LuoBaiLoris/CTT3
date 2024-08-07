@@ -245,7 +245,7 @@ function slam(dir,slamSpeed = 10)
 function downLB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x-getArenaWidth()/2-10-offset,_arena.y+getArenaHeight()/2,ang+90, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x-_arena.left-10-offset,_arena.y+_arena.down,ang+90, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -253,15 +253,15 @@ function downLB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = -getArenaWidth()/2-10-offset;
-	//bone.pos.y = -getArenaHeight()/2;
+	//bone.pos.x = -_arena.left-10-offset;
+	//bone.pos.y = -_arena.up;
 	//bone.posSpd.x = spd;
 	return bone
 }
 function downRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x+getArenaWidth()/2+10+offset,_arena.y+getArenaHeight()/2,ang+90, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x+_arena.right+10+offset,_arena.y+_arena.down,ang+90, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -269,8 +269,8 @@ function downRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = +getArenaWidth()/2+10+offset;
-	//bone.pos.y = -getArenaHeight()/2;
+	//bone.pos.x = +_arena.right+10+offset;
+	//bone.pos.y = -_arena.up;
 	//bone.posSpd.x = -spd;
 	return bone
 }
@@ -278,7 +278,7 @@ function downRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 function upLB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x-getArenaWidth()/2-10-offset,_arena.y-getArenaHeight()/2,ang-90, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x-_arena.left-10-offset,_arena.y-_arena.up,ang-90, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -286,15 +286,15 @@ function upLB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = -getArenaWidth()/2-10-offset;
-	//bone.pos.y = getArenaHeight()/2;
+	//bone.pos.x = -_arena.left-10-offset;
+	//bone.pos.y = _arena.up;
 	//bone.posSpd.x = spd;
 	return bone
 }
 function upRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x+getArenaWidth()/2+10+offset,_arena.y-getArenaHeight()/2,ang-90, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x+_arena.right+10+offset,_arena.y-_arena.up,ang-90, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -302,8 +302,8 @@ function upRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = +getArenaWidth()/2+10+offset;
-	//bone.pos.y = getArenaHeight()/2;
+	//bone.pos.x = +_arena.right+10+offset;
+	//bone.pos.y = _arena.up;
 	//bone.posSpd.x = -spd;
 	return bone
 }
@@ -311,7 +311,7 @@ function upRB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 function leftDB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x-getArenaWidth()/2,_arena.y+getArenaHeight()/2+10+offset,ang, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x-_arena.left,_arena.y+_arena.down+10+offset,ang, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -319,15 +319,15 @@ function leftDB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = -getArenaWidth()/2;
-	//bone.pos.y = -getArenaHeight()/2-10-offset;
+	//bone.pos.x = -_arena.left;
+	//bone.pos.y = -_arena.up-10-offset;
 	//bone.posSpd.y = spd;
 	return bone
 }
 function leftUB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x-getArenaWidth()/2,_arena.y-getArenaHeight()/2-10-offset,ang, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x-_arena.left,_arena.y-_arena.up-10-offset,ang, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -335,15 +335,15 @@ function leftUB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = -getArenaWidth()/2;
-	//bone.pos.y = getArenaHeight()/2+10+offset;
+	//bone.pos.x = -_arena.left;
+	//bone.pos.y = _arena.up+10+offset;
 	//bone.posSpd.y = -spd;
 	return bone
 }
 function rightDB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x+getArenaWidth()/2,_arena.y+getArenaHeight()/2+10+offset,ang-180, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x+_arena.right,_arena.y+_arena.down+10+offset,ang-180, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -351,15 +351,15 @@ function rightDB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = getArenaWidth()/2;
-	//bone.pos.y = -getArenaHeight()/2-10-offset;
+	//bone.pos.x = _arena.right;
+	//bone.pos.y = -_arena.up-10-offset;
 	//bone.posSpd.y = spd;
 	return bone
 }
 function rightUB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 {
 	var _arena = battle_board;
-	var bone = boneCreate(_arena.x+getArenaWidth()/2,_arena.y-getArenaHeight()/2-10-offset,ang-180, leng, true, clr, atDest, true);
+	var bone = boneCreate(_arena.x+_arena.right,_arena.y-_arena.up-10-offset,ang-180, leng, true, clr, atDest, true);
 	//bone.follow = true;
 	bone._color = clr;
 	bone.speed = spd;
@@ -367,8 +367,8 @@ function rightUB(spd, leng, ang, clr = 0, offset = 0, atDest = true)
 	//bone.coordSwitch = true;
 	//bone.center.x = _arena.x;
 	//bone.center.y = _arena.y;
-	//bone.pos.x = getArenaWidth()/2;
-	//bone.pos.y = getArenaHeight()/2+10+offset;
+	//bone.pos.x = _arena.right;
+	//bone.pos.y = _arena.up+10+offset;
 	//bone.posSpd.y = -spd;
 	return bone
 }
@@ -412,31 +412,31 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 	{
 		case DIR.UP:
 		{
-			_val = floor(getArenaWidth()/2/14)+2
-			_x = getArenaX()+lengthdir_x(getArenaHeight()/2, DIR.UP+getArenaAngle());
-			_y = getArenaY()+lengthdir_y(getArenaHeight()/2, DIR.UP+getArenaAngle());
+			_val = floor(_arena.right/14)+2
+			_x = getArenaX()+lengthdir_x(_arena.up, DIR.UP+getArenaAngle());
+			_y = getArenaY()+lengthdir_y(_arena.up, DIR.UP+getArenaAngle());
 		}
 		break;
 		case DIR.DOWN:
 		{
-			_val = floor(getArenaWidth()/2/14)+2
-			_x = getArenaX()+lengthdir_x(getArenaHeight()/2, DIR.DOWN+getArenaAngle());
-			_y = getArenaY()+lengthdir_y(getArenaHeight()/2, DIR.DOWN+getArenaAngle());
+			_val = floor(_arena.right/14)+2
+			_x = getArenaX()+lengthdir_x(_arena.up, DIR.DOWN+getArenaAngle());
+			_y = getArenaY()+lengthdir_y(_arena.up, DIR.DOWN+getArenaAngle());
 		}
 		break;
 		case DIR.RIGHT:
 		{
-			_val = floor(getArenaHeight()/2/14)+2
-			_x = getArenaX()+lengthdir_x(getArenaWidth()/2, DIR.RIGHT+getArenaAngle());
-			_y = getArenaY()+lengthdir_y(getArenaWidth()/2, DIR.RIGHT+getArenaAngle());
+			_val = floor(_arena.up/14)+2
+			_x = getArenaX()+lengthdir_x(_arena.right, DIR.RIGHT+getArenaAngle());
+			_y = getArenaY()+lengthdir_y(_arena.right, DIR.RIGHT+getArenaAngle());
 			//show_debug_message(1)
 		}
 		break;
 		case DIR.LEFT:
 		{
-			_val = floor(getArenaHeight()/2/14)+2
-			_x = getArenaX()+lengthdir_x(getArenaWidth()/2, DIR.LEFT+getArenaAngle());
-			_y = getArenaY()+lengthdir_y(getArenaWidth()/2, DIR.LEFT+getArenaAngle());
+			_val = floor(_arena.up/14)+2
+			_x = getArenaX()+lengthdir_x(_arena.right, DIR.LEFT+getArenaAngle());
+			_y = getArenaY()+lengthdir_y(_arena.right, DIR.LEFT+getArenaAngle());
 		}
 		break;
 	}
@@ -445,13 +445,13 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 		case DIR.UP:
 		case DIR.DOWN:
 		{
-			_val = floor(getArenaWidth()/2/10)
+			_val = floor(_arena.right/10)
 		}
 		break;
 		case DIR.RIGHT:
 		case DIR.LEFT:
 		{
-			_val = floor(getArenaHeight()/2/10)
+			_val = floor(_arena.up/10)
 		}
 		break;
 	}

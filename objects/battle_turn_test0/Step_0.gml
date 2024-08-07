@@ -32,11 +32,11 @@ if (keyboard_check_pressed(ord("S")))
 	
 if (keyboard_check_pressed(ord("F")))
 {
-	//boneCreate(320,320,0, 60, 0);
+	
 }
 if (keyboard_check_pressed(ord("G")))
 {
-	//gbCreate(30, 0, 0, 0, 320, 320, irandom(360), 2, 1, 0);
+	//Battle_MakeGB_ub_yellow(0,0,320,320,0,180);
 }
 if (time == 3910)
 {
@@ -211,6 +211,7 @@ if (time == 4248)
 }
 if (time == 4295)
 {
+	//Battle_MakeGB_ub_yellow(0,0,320,320,0,180);
 	instance_destroy(awa);
 	var _time = 42;
 	Battle_MakeBlaster(640+80,320,320-80,320, 90, 90, 0, 2,2, 10, _time, 0);
@@ -233,9 +234,9 @@ if (time == 4320)
 	downRB(5, 65, 0);
 	//TweenFire(gb0,EaseLinear, 0, false, 40, 45, "image_angle", 0, 45);
 }
-if (time == 4365)
+if (time == 4349)
 {
-	
+	Battle_MakeGB_ub_yellow(0,0,320+180,320,0,180, 0, 30);
 }
 if (time == 4395)
 {
@@ -332,4 +333,67 @@ if (time == __time+_val*4)
 	index ++;
 	//audio_play_sound(snd_impact, 0, 0);
 }
+if (time == 4720)
+{
+	instance_destroy(awa);
+	instance_destroy(bone);
+}
+if (time == 4690)
+{
+	Battle_SetSoul(battle_soul_blue);
+	TweenFire(battle_board,EaseInOutBack, 0, false, 0, 60, "right", 65, 320);
+	var a=instance_create_depth(battle_board.x-50,battle_board.y+20+130,-1001,battle_platform)
+	TweenFire(a,EaseOutSine, 0, false, 0, 35, "y", battle_board.y+130, battle_board.y+30);
+	a.hspeed=2;
+	a.sticky=true;
+}
+camera.x = sin(time*0.05)*0;
+camera.angle = cos(time*0.05)*0;
+if (inRange(GetTimer(), 4690, 5070, 3))
+{
+	//downLB(2.25, 65, 0);
+	downLB(5, 30, 0);
+}
+if (inRange(GetTimer(), 4690, 5070, 13))
+{
+	
+}
+if (time == 5070)
+{
+	Battle_SetSoul(battle_soul_blue);
+	battle_soul.dir = DIR.UP;
+}
+if (inRange(GetTimer(), 5070, 5470, 3))
+{
+	//downLB(2.25, 65, 0);
+	upRB(5, 20, 0);
 
+}
+if (time == 4750)
+{
+	downLB(5, 70, 0);
+}
+if (time == 4780)
+{
+	downLB(5, 70, 0);
+}
+if (time == 4750)
+{
+	upRB(5, 30, 0);
+	array = [];
+	for(var i =0;i<8;i++)
+	{
+		array[i] = boneCreate(320+220, 320+180-i*60, 90, 30, false, 0, 100, true);
+		TweenFire(array[i], animcurve_get_channel(acSin, 0), TWEEN_MODE_REPEAT, false, 0, 100, "y", array[i].y, array[i].y+30);
+		TweenFire(array[i], EaseLinear, 0, false, 0, 100, "x", array[i].x, array[i].x-480);
+	}
+}
+
+if (time == 4690)
+{
+	Battle_SetSoul(battle_soul_blue);
+	TweenFire(battle_board,EaseInOutBack, 0, false, 0, 60, "right", 65, 320);
+	var a=instance_create_depth(517,303,-1001,battle_platform)
+	a.hspeed=-3;
+	a.sticky=true;
+}

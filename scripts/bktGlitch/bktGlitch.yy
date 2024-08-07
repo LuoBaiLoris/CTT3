@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"bktGlitch",
   "parent":{
-    "name":"bktGlitch",
-    "path":"folders/Extensions/BKTGLITCH/Scripts/bktGlitch.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

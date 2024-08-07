@@ -10,8 +10,8 @@
   "name":"battle_soul_yellow_bullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"origin",
-    "path":"folders/Objects/Battle/Soul/origin.yy",
+    "name":"other",
+    "path":"folders/Objects/Battle/Soul/other.yy",
   },
   "parentObjectId":null,
   "persistent":false,

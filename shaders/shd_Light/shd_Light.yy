@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_Light",
+  "name":"shd_Light",
+  "parent":{
+    "name":"屏幕效果类型",
+    "path":"folders/我去是傻逼着色器/shd_shader/屏幕效果类型.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}
