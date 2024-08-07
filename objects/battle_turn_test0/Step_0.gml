@@ -209,3 +209,127 @@ if (time == 4248)
 	awa = boneRing(320,320,16, 100, 10000, 5, 0, true, 0, true);
 	TweenFire(awa,animcurve_get_channel(acBacks, 1), 0, false, 0, 45, "offset", 100, 20);
 }
+if (time == 4295)
+{
+	instance_destroy(awa);
+	var _time = 42;
+	Battle_MakeBlaster(640+80,320,320-80,320, 90, 90, 0, 2,2, 10, _time, 0);
+	Battle_MakeBlaster(320,0,320,320-80, 0, 0, 0, 1.5,2, 10, _time, 0);
+	
+	Battle_MakeBlaster(-80,320,320+80,320, 90+180, 90+180, 0, 2,2, 10, _time, 0);
+	Battle_MakeBlaster(320,640,320,320+80, 180, 180, 0, 1.5,2, 10, _time, 0);
+	audio_play_sound(snd_spearrise, 0, 0);
+	downLB(5, 65, 0);
+	upRB(5, 65, 0);
+}
+
+if (time == 4320)
+{
+	var _time = 42;
+	gb0 = Battle_MakeBlaster(0,0,320+40,320, -90, 0, 0, 2,2, 10, 42, 0);
+	gb1 = Battle_MakeBlaster(640,0,320-40,320, 90, 0, 0, 2,2, 10, 42, 0);
+	audio_play_sound(snd_spearrise, 0, 0);
+	upLB(5, 65, 0);
+	downRB(5, 65, 0);
+	//TweenFire(gb0,EaseLinear, 0, false, 40, 45, "image_angle", 0, 45);
+}
+if (time == 4365)
+{
+	
+}
+if (time == 4395)
+{
+	audio_play_sound(snd_impact, 0, 0);
+	TweenFire(battle_board,EaseOutSine, 0, false, 0, 10, "x", 320, 320-145);
+}
+if (time == 4395)
+{
+	awa = boneRing(320-145,320,3, 100, 10000, 5, 0, true, 0, true);
+	awa._color = 2;
+	TweenFire(awa,EaseOutSine, 0, false, 0, 0, "offset", 100, 20);
+	bone = boneCreate(320-145, 320, 0, 35, false, 1);
+	bone.rotate = -3;
+}
+if (time == 4490)
+{
+	audio_play_sound(snd_ding, 0, 0);
+	TweenFire(awa,EaseLinear, 0, false, 0, 30, "rotate", 5, -5);
+	TweenFire(bone,EaseLinear, 0, false, 0, 30, "rotate", -3, 3);
+	awa._color = 0;
+	bone._color = 2;
+	array = [];
+	index = 0;
+}
+if (inRange(GetTimer(), 4395, 4490, 10))
+{
+	var _bone = upLB(0, 30, 180, 0, -15-irandom(130), 100);
+	//_bone.mask = false;
+	TweenFire(_bone,animcurve_get_channel(acBacks, 1), 0, false, 0, 30, "y", _bone.y, _bone.y+20);
+	TweenFire(_bone,EaseInSine, 0, false, 30, 45, "y", _bone.y, _bone.y+130+80);
+	
+}
+if (inRange(GetTimer(), 4490, 4600, 15))
+{
+	var _bone = downLB(0, 30, 180, 1, -15-irandom(130), 100);
+	//_bone.mask = false;
+	TweenFire(_bone,animcurve_get_channel(acBacks, 1), 0, false, 0, 30, "y", _bone.y, _bone.y-20);
+	TweenFire(_bone,EaseInSine, 0, false, 30, 45, "y", _bone.y, _bone.y-130-80);
+	
+}
+if (inRange(GetTimer(), 4490, 4600, (4600-4490)/5))
+{
+	var a = bladeCreate(battle_soul.x, battle_soul.y, irandom(360), 0.8, 0, 20000);
+	array_add(array, a);
+}
+room_speed = 60;
+var __time = 4635-1;
+var _val = 6;
+if (time == __time)
+{
+	TweenFire(awa,EaseInSine, 0, false, 0, 30, "offset", awa.offset, awa.offset+50);
+	TweenFire(bone,EaseInSine, 0, false, 0, 30, "length", bone.length, bone.length+100);
+	with(array[index])
+	{
+		time = _warnTime-1;
+	}
+	index ++;
+	//audio_play_sound(snd_impact, 0, 0);
+}
+if (time == __time+_val*1)
+{
+	with(array[index])
+	{
+		time = _warnTime-1;
+	}
+	index ++;
+	//audio_play_sound(snd_impact, 0, 0);
+}
+if (time == __time+_val*2)
+{
+	with(array[index])
+	{
+		time = _warnTime-1;
+	}
+	index ++;
+	//audio_play_sound(snd_impact, 0, 0);
+}
+if (time == __time+_val*3)
+{
+	with(array[index])
+	{
+		time = _warnTime-1;
+	}
+	index ++;
+	//audio_play_sound(snd_impact, 0, 0);
+}
+
+if (time == __time+_val*4)
+{
+	with(array[index])
+	{
+		time = _warnTime-1;
+	}
+	index ++;
+	//audio_play_sound(snd_impact, 0, 0);
+}
+

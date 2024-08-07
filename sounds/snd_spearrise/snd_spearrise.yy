@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_phone_box",
+  "%Name":"snd_spearrise",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.290249,
-  "name":"snd_phone_box",
+  "duration":0.50068,
+  "name":"snd_spearrise",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_phone_box",
+  "soundFile":"snd_spearrise.wav",
   "type":0,
   "volume":1.0,
 }
