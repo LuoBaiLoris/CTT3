@@ -13,7 +13,7 @@ function playSound(sndId, delay)
 {
 	var _inst = instance_create_depth(0, 0, 0, oSound);
 	_inst.sndId = sndId; 
-	_inst.alarm[0] = delay+1;
+	_inst.alarm[0] = delay+1;	
 }
 */
 function array_add(array, val)

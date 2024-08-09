@@ -33,6 +33,26 @@ head =
 	sprite : Spr_UbP3_Heads,
 	alpha : 1
 }
+fire0 = 
+{
+	x : x,
+	y : y,
+	angle : image_angle,
+	scale : 2,
+	index : 0, 
+	sprite : Spr_UbP3_Heads,
+	alpha : 1
+}
+fire1 = 
+{
+	x : x,
+	y : y,
+	angle : image_angle,
+	scale : 2,
+	index : 0, 
+	sprite : Spr_UbP3_Heads,
+	alpha : 1
+}
 arm0 = 
 {
 	x : x,
@@ -73,4 +93,5 @@ arm3 =
 	sprite : Spr_UbP3_Heads,
 	alpha : 0
 }
+
 array = [body, head];

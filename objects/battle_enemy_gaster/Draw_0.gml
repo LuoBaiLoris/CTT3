@@ -8,7 +8,7 @@ if (type == 0)
 	repeat (array_length(array))
 	{
 		var spr = array[i];
-		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, 2, spr.scale, spr.angle, c_white, spr.alpha);
+		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, 2, spr.scale, spr.angle, c_white, image_alpha);
 		i ++;
 	}
 	

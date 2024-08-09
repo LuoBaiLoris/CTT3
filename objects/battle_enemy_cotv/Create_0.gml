@@ -86,3 +86,4 @@ cnrLost =
 cnrSoul.x = x+45;
 cnrSoul.y = y-150;
 array = [body, head, anim0];
+_headShake = false;

@@ -39,6 +39,9 @@
     "name":"spr_battle_soul_orange",
     "path":"sprites/spr_battle_soul_orange/spr_battle_soul_orange.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_battle_soul_mask",
+    "path":"sprites/spr_battle_soul_mask/spr_battle_soul_mask.yy",
+  },
   "visible":true,
 }

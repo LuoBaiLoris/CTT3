@@ -56,7 +56,8 @@ if (time == 3910)
 	sUbGb0.sprite_index = Spr_UbP21_GB;
 	sUbGb1 = instance_create_depth(320,320,DEPTH_BATTLE.ENEMY, oSprite);
 	sUbGb1.sprite_index = Spr_UbP22_GB;
-
+	sUbGb0.x = 320-160;
+	sUbGb1.x = 320+160;
 
 
 
@@ -87,8 +88,7 @@ if (time == 3910)
 Player_SetHp(320);
 if (time > 3910)
 {
-	sUbGb0.x = 320-160;
-	sUbGb1.x = 320+160;
+
 	sUbGb0.y = 320-220+sin(time*0.05)*10;
 	sUbGb1.y = 320-220-sin(time*0.05)*10;
 	sUbGb0.image_xscale = 2;
@@ -282,7 +282,7 @@ if (inRange(GetTimer(), 4490, 4600, (4600-4490)/5))
 	var a = bladeCreate(battle_soul.x, battle_soul.y, irandom(360), 0.8, 0, 20000);
 	array_add(array, a);
 }
-room_speed = 60;
+
 var __time = 4635-1;
 var _val = 6;
 if (time == __time)
@@ -340,6 +340,8 @@ if (time == 4720)
 }
 if (time == 4690)
 {
+	TweenFire(awa,EaseInSine, 0, false, 0, 30, "offset", awa.offset, awa.offset+50);
+	TweenFire(bone,EaseInSine, 0, false, 0, 30, "length", bone.length, 0);
 	Battle_SetSoul(battle_soul_blue);
 	TweenFire(battle_board,EaseInOutBack, 0, false, 0, 60, "right", 65, 320);
 	var a=instance_create_depth(battle_board.x-50,battle_board.y+20+130,-1001,battle_platform)
@@ -347,8 +349,8 @@ if (time == 4690)
 	a.hspeed=2;
 	a.sticky=true;
 }
-camera.x = sin(time*0.05)*0;
-camera.angle = cos(time*0.05)*0;
+//camera.x = sin(time*0.05)*0;
+//camera.angle = cos(time*0.05)*0;
 if (inRange(GetTimer(), 4690, 5070, 3))
 {
 	//downLB(2.25, 65, 0);
@@ -358,15 +360,12 @@ if (inRange(GetTimer(), 4690, 5070, 13))
 {
 	
 }
-if (time == 5070)
-{
-	Battle_SetSoul(battle_soul_blue);
-	battle_soul.dir = DIR.UP;
-}
-if (inRange(GetTimer(), 5070, 5470, 3))
+
+if (inRange(GetTimer(), 5070, 5460, 3))
 {
 	//downLB(2.25, 65, 0);
-	upRB(5, 20, 0);
+	upRB(5, 65+sin(time*0.05)*30-30, 0);
+	downRB(5, 65-sin(time*0.05)*30-30, 0);
 
 }
 if (time == 4750)
@@ -393,7 +392,390 @@ if (time == 4690)
 {
 	Battle_SetSoul(battle_soul_blue);
 	TweenFire(battle_board,EaseInOutBack, 0, false, 0, 60, "right", 65, 320);
-	var a=instance_create_depth(517,303,-1001,battle_platform)
-	a.hspeed=-3;
-	a.sticky=true;
+	plat=instance_create_depth(517,303,-1001,battle_platform)
+	plat.hspeed=-3;
+	plat.sticky=true;
 }
+if (time == 4780)
+{
+	Battle_MakeBlaster(640+80,320,390,280, 90, 0, 0, 2,2, 10, 30, 0);
+	TweenFire(plat, EaseLinear, 0, false, 40, 30, "hspeed", -3, 5);
+	plat.sticky = false;
+	index = 0; 
+}
+if (inRange(GetTimer(), 4820, 5080, 40))
+{
+	plat=instance_create_depth(320-300,303+30-((index%2==0)?0:20),-1001,battle_platform)
+	var a = upLB(3+((index%2==0)?0:1),65+30-((index%2==0)?0:20), 0, (index%2==0)?1:2)
+	a.x = plat.x;
+	plat.width = 30;
+	plat.hspeed=3+((index%2==0)?0:1);
+	plat.sticky=((index%2==0)?false: true);
+	index ++;
+
+}
+if (inRange(GetTimer(), 5070,5430, 24))
+{
+	var _angle = irandom(360);
+	var _length = 80;
+	Battle_MakeBlaster(battle_soul.x+lengthdir_x(_length+360, _angle),battle_soul.y+lengthdir_y(_length+360, _angle),battle_soul.x+lengthdir_x(_length, _angle),battle_soul.y+lengthdir_y(_length, _angle), _angle-90, _angle-90, 6, 2,2, 5, 24, 0);
+	var _angle = irandom(360);
+	var _length = 100;
+
+
+}
+if (time == 5070)
+{
+	Battle_SetSoul(battle_soul_orange);
+}
+if (time == 5400)
+{
+	Fader_Fade(0, 1, 60);
+}
+if (time == 5460)
+{
+	Battle_SetSoul(battle_soul_red);
+	instance_destroy(oAutoDestory);
+	instance_destroy(oBoneRing);
+	battle_soul.x = 320;
+	battle_soul.y = 320;
+	battle_board.x = 320;
+	battle_board.y = 320;
+	battle_board.right = 65;
+	battle_board.left = 65;
+	battle_board.up = 65;
+	battle_board.down = 65;
+	battle_board.angle = 0;
+	
+
+	battle_enemy_ub.x = 320+2400;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-2400;
+	battle_enemy_ukb.y = 320-80;
+	
+	
+	sUbGb0.x = 320-1600;
+	sUbGb1.x = 320+1600;
+	battle_enemy_cotv.x = 320-80;
+	battle_enemy_cotv.y = 320-80;
+	battle_enemy_cnr.x = 320+80;
+	battle_enemy_cnr.y = 320-80;
+	
+	
+	Fader_Fade(1, 0, 60);
+}
+if (time == 6245)
+{
+	Fader_Fade(1, 0, 60);
+	
+	battle_enemy_ub.x = 320+240;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-240;
+	battle_enemy_ukb.y = 320-80;
+	
+	
+	sUbGb0.x = 320-160;
+	sUbGb1.x = 320+160;
+}
+if (time == 7000)
+{
+	Fader_Fade(0, 1, 30);
+
+}
+if (time == 7030)
+{
+	Fader_Fade(1, 0, 60);
+	
+	battle_enemy_ub.x = 320+2400;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-2400;
+	battle_enemy_ukb.y = 320-80;
+	
+	sUbGb0.x = 320-1600;
+	sUbGb1.x = 320+1600;
+	battle_enemy_cotv.x = 320-800;
+	battle_enemy_cotv.y = 320-80;
+	battle_enemy_cnr.x = 320+800;
+	battle_enemy_cnr.y = 320-80;
+	
+	battle_enemy_gaster.image_alpha = 0;
+}
+if (time == 7400)
+{
+	Fader_Fade(1, 0, 60);
+	
+	battle_enemy_ub.x = 320+240;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-240;
+	battle_enemy_ukb.y = 320-80;
+	
+	sUbGb0.x = 320-160;
+	sUbGb1.x = 320+160;
+	battle_enemy_cotv.x = 320-80;
+	battle_enemy_cotv.y = 320-80;
+	battle_enemy_cnr.x = 320+80;
+	battle_enemy_cnr.y = 320-80;
+	
+	battle_enemy_gaster.image_alpha = 1;
+}
+if (time == 7670)
+{
+	Fader_Fade(1, 0, 60);
+
+}
+if (time == 7760)
+{
+	Fader_Fade(1, 0, 60);
+
+}
+if (time == 8410)
+{
+	Fader_Fade(1, 0, 60);
+	battle_enemy_ub.x = 320+2400;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-2400;
+	battle_enemy_ukb.y = 320-80;
+	
+	battle_enemy_cotv.x = 320-800;
+	battle_enemy_cotv.y = 320-80;
+	battle_enemy_cnr.x = 320+800;
+	battle_enemy_cnr.y = 320-80;
+	sUbGb0.x = 320-1600;
+	sUbGb1.x = 320+1600;
+	battle_enemy_gaster.image_alpha = 0.8;
+}
+if (time == 8500)
+{
+	Fader_Fade(1, 0, 60);
+	battle_enemy_ukb.type = 3;
+	battle_enemy_gaster.image_alpha = 1;
+	battle_enemy_ub.x = 320+240;
+	battle_enemy_ub.y = 320-80;
+	battle_enemy_ukb.x = 320-240;
+	battle_enemy_ukb.y = 320-80;
+	
+	battle_enemy_cotv.x = 320-80;
+	battle_enemy_cotv.y = 320-80;
+	battle_enemy_cnr.x = 320+80;
+	battle_enemy_cnr.y = 320-80;
+	sUbGb0.x = 320-160;
+	sUbGb1.x = 320+160;
+}
+if (time == 9140)
+{
+	Fader_Fade(1, 0, 60);
+
+}
+if (time == 9240)
+{
+	TweenFire(battle_enemy_cnr,EaseInOutSine, 0, false, 0, 60, "x", battle_enemy_cnr.x, battle_enemy_ub.x);
+	TweenFire(battle_enemy_ub,EaseInOutSine, 0, false, 0, 60, "x", battle_enemy_ub.x, battle_enemy_cnr.x);
+	TweenFire(battle_enemy_cotv,EaseInOutSine, 0, false, 0, 60, "x", battle_enemy_cotv.x, battle_enemy_ukb.x);
+	TweenFire(battle_enemy_ukb,EaseInOutSine, 0, false, 0, 60, "x", battle_enemy_ukb.x, battle_enemy_cotv.x);
+	Fader_Fade(1, 0, 60);
+
+}
+
+if (time == 9880)
+{
+	Fader_Fade(1, 0, 60);
+
+}
+if (time == 9970)
+{
+	Fader_Fade(1, 0, 60);
+
+}
+if (time == 10400)
+{
+	TweenFire(battle_enemy_gaster,EaseInOutSine, 0, false, 0, 60, "image_alpha", 1, 0);
+}
+if (inRange(time, 3910, 5460))
+{	
+	battle_enemy_ukb.head.index +=0.1;
+	var _index = battle_enemy_ukb.head.index;
+	if (_index < 20)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+	else if (_index>=27)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+	
+	
+	battle_enemy_ub.head.index +=0.2;
+	var _index = battle_enemy_ub.head.index;
+	if (_index>5)
+	{
+		battle_enemy_ub.head.index = 0;
+	}
+	battle_enemy_cotv.head.index = 0;
+}
+if (inRange(time, 5460, 6050))
+{	
+	battle_enemy_ukb.head.index +=0.1;
+	var _index = battle_enemy_ukb.head.index;
+	if (_index < 20)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+	else if (_index>=27)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+	
+	
+	battle_enemy_ub.head.index +=0.2;
+	var _index = battle_enemy_ub.head.index;
+	if (_index>5)
+	{
+		battle_enemy_ub.head.index = 0;
+	}
+	battle_enemy_cotv.head.index = 48;
+}
+if (time == 6050)
+{	
+
+	battle_enemy_cotv.head.index = 41;
+}
+if (time == 6095)
+{	
+	battle_enemy_cotv.head.index = 31;
+}
+if (inRange(time, 6245, 6640))
+{	
+
+	battle_enemy_cotv.head.index +=0.2;
+	var _index = battle_enemy_cotv.head.index;
+	if (_index < 44)
+	{
+		battle_enemy_cotv.head.index = 44;
+	}
+	else if (_index>=46)
+	{
+		battle_enemy_cotv.head.index = 44;
+	}
+	show_debug_message(_index)
+	battle_enemy_ukb.head.index = 10;
+	battle_enemy_ub.head.index = 11;
+}
+if (inRange(time, 6640, 7000))
+{	
+
+	battle_enemy_cotv.head.index +=0.2;
+	var _index = battle_enemy_cotv.head.index;
+	if (_index < 44)
+	{
+		battle_enemy_cotv.head.index = 44;
+	}
+	else if (_index>=46)
+	{
+		battle_enemy_cotv.head.index = 44;
+	}
+	show_debug_message(_index)
+	battle_enemy_ukb.head.index = 13;
+	battle_enemy_ub.head.index = 6;
+}
+if (inRange(time, 7400, 8410))
+{	
+	battle_enemy_cotv.head.index +=0.2;
+	var _index = battle_enemy_cotv.head.index;
+	if (_index>16)
+	{
+		battle_enemy_cotv.head.index = 14;
+	}
+	
+	battle_enemy_ub.head.index +=0.2;
+	var _index = battle_enemy_ub.head.index;
+	if (_index < 13)
+	{
+		battle_enemy_ub.head.index = 13;
+	}
+	else if (_index>=16)
+	{
+		battle_enemy_ub.head.index = 13;
+	}
+	
+	
+	battle_enemy_ukb.head.index +=0.1;
+	var _index = battle_enemy_ukb.head.index;
+	if (_index < 35)
+	{
+		battle_enemy_ukb.head.index = 35;
+	}
+	if (_index>36)
+	{
+		battle_enemy_ukb.head.index = 35;
+	}
+}
+if (inRange(time, 8410, 9140))
+{	
+	battle_enemy_cotv.head.index +=0.2;
+	var _index = battle_enemy_cotv.head.index;
+	if (_index>16)
+	{
+		battle_enemy_cotv.head.index = 14;
+	}
+	
+	battle_enemy_ub.head.index +=0.2;
+	var _index = battle_enemy_ub.head.index;
+	if (_index>5)
+	{
+		battle_enemy_ub.head.index = 0;
+	}
+	battle_enemy_cotv.head.index = 18;
+	battle_enemy_ukb.type = 3;
+	battle_enemy_ukb.head.index +=0.1;
+	var _index = battle_enemy_ukb.head.index;
+	if (_index>=27)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+}
+if (time == 9140)
+{	
+	battle_enemy_ub.head.index = 33;
+	battle_enemy_cotv.head.index = 49;
+	battle_enemy_ukb.type = 2;
+	battle_enemy_ukb.head.index = 13;
+}
+if (inRange(time, 9140, 91400))
+{	
+
+	//battle_enemy_cotv.head.index +=0.1;
+	var _index = battle_enemy_cotv.head.index;
+	if (time % 8 == 0)
+	{
+		battle_enemy_cotv.head.index = 27;
+	}
+	if (time % 8 == 4)
+	{
+		battle_enemy_cotv.head.index = 28;
+	}
+	battle_enemy_cotv._headShake = true;
+	//battle_enemy_ub.head.index +=0.2;
+	
+	var _index = battle_enemy_ub.head.index;
+	if (time % 10 == 0)
+	{
+		battle_enemy_ub.head.index = 23;
+	}
+	if (time % 10 == 5)
+	{
+		battle_enemy_ub.head.index = 24;
+	}
+	
+	
+	battle_enemy_ukb.type = 4;
+	battle_enemy_ukb.head.index +=0.3;
+	var _index = battle_enemy_ukb.head.index;
+	if (_index>=27)
+	{
+		battle_enemy_ukb.head.index = 20;
+	}
+}
+/*
+
+*/
+room_speed = 60

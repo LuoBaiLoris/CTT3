@@ -48,7 +48,7 @@ if (type == 2)
 	body.x = x-5+sin(time*spd*0.5-0.2)*3;
 	body.y = y-240+150-5-sin(time*spd)*3;
 	head.x = x-3+sin(time*spd*0.5-0.2)*5;
-	head.angle = -sin(time*spd*0.5-0.2)*2;
+	head.angle = -sin(time*spd*0.5-0.2)*2+(_headShake)*sin(time*0.8)*1;
 	body.angle = -sin(time*spd*0.5-0.2)*2;
 	head.y = y-240+100-5-sin(time*spd-0.2)*4;
 
