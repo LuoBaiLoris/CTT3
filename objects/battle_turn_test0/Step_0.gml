@@ -95,8 +95,7 @@ if (time > 3910)
 	sUbGb0.image_yscale = 2;
 	sUbGb1.image_xscale = 2;
 	sUbGb1.image_yscale = 2;
-	camera.x = sin(time*0.05)*15;
-	camera.angle = cos(time*0.05)*1.5;
+	
 }
 if (keyboard_check_pressed(ord("A")))
 {
@@ -349,8 +348,17 @@ if (time == 4690)
 	a.hspeed=2;
 	a.sticky=true;
 }
-//camera.x = sin(time*0.05)*0;
-//camera.angle = cos(time*0.05)*0;
+if (inRange(time, 3910, 5460))
+{	
+	camera.x = sin(time*0.05)*15;
+	camera.angle = cos(time*0.05)*1.5;
+}
+if (time == 5460)
+{	
+	camera.x = 0;
+	camera.angle = 0;
+}
+
 if (inRange(GetTimer(), 4690, 5070, 3))
 {
 	//downLB(2.25, 65, 0);
@@ -434,6 +442,7 @@ if (time == 5400)
 }
 if (time == 5460)
 {
+	
 	Battle_SetSoul(battle_soul_red);
 	instance_destroy(oAutoDestory);
 	instance_destroy(oBoneRing);
@@ -473,9 +482,27 @@ if (time == 6245)
 	battle_enemy_ukb.x = 320-240;
 	battle_enemy_ukb.y = 320-80;
 	
-	
+	instance_destroy(text0);
+	instance_destroy(text1);
 	sUbGb0.x = 320-160;
 	sUbGb1.x = 320+160;
+	camera.scale_x = 1;
+	camera.scale_y = 1;
+	camera.target = noone;
+	camera.x = 0;
+	camera.y = 0;
+	
+
+
+	var shd = instance_create_depth(0,0,0,oShdGlitchPixel);
+	shd.alarm[0] = 60;
+	TweenFire(shd,EaseInOutSine, 0, false, 0, 60, "iTime", 0, 60);
+	
+	
+	//var shd = instance_create_depth(0,0,0,oShdRadialBlur);
+	//TweenFire(shd,EaseInOutSine, 0, false, 0, 60, "bufferRadius", 2, 0);
+	//TweenFire(shd,EaseInOutSine, 0, false, 0, 60, "shadow_rd", 1, 0);
+	
 }
 if (time == 7000)
 {
@@ -546,6 +573,7 @@ if (time == 8410)
 }
 if (time == 8500)
 {
+
 	Fader_Fade(1, 0, 60);
 	battle_enemy_ukb.type = 3;
 	battle_enemy_gaster.image_alpha = 1;
@@ -636,12 +664,43 @@ if (inRange(time, 5460, 6050))
 }
 if (time == 6050)
 {	
-
+	text0 = instance_create_depth(320,320,battle_enemy_cotv.depth, oSprite);
+	text0.sprite_index = spr_ctt2_text2;
+	text0.image_speed = 0;
+	text0.x = 320-100;
+	text0.y = 0;
+	text0.image_xscale = 0.4;
+	text0.image_yscale = 0.4;
+	text0.depth = -1000;
+	TweenFire(text0, EaseLinear, 0, false, 0, 15, "image_alpha", 0, 1);
+	TweenFire(text0, EaseLinear, 0, false, 0, 30, "image_index", 0, 62);
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "x", camera.x, -10);
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "y", camera.y, -100);
+	
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "scale_x",1, 1.2);
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "scale_y", 1, 1.2);
 	battle_enemy_cotv.head.index = 41;
 }
 if (time == 6095)
 {	
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "x", camera.x, 150);
+	TweenFire(camera, EaseOutSine, 0, false, 0, 30, "y", camera.y, -30);
+	text1 = instance_create_depth(320,320,battle_enemy_cotv.depth, oSprite);
+	text1.sprite_index = spr_ctt3_text;
+	text1.image_speed = 0;
+	text1.x = 320+140;
+	text1.y = 480-200;
+	text1.image_xscale = 0.4;
+	text1.image_yscale = 0.4;
+	text1.depth = -1000;
+	TweenFire(text1, EaseLinear, 0, false, 0, 15, "image_alpha", 0, 1);
+	TweenFire(text1, EaseLinear, 0, false, 0, 30, "image_index", 0, 62);
 	battle_enemy_cotv.head.index = 31;
+}
+if (inRange(time, 6245, 69000))
+{	
+	camera.x = sin(time*0.05)*15;
+	camera.angle = cos(time*0.05)*1.5;
 }
 if (inRange(time, 6245, 6640))
 {	
@@ -735,11 +794,13 @@ if (inRange(time, 8410, 9140))
 }
 if (time == 9140)
 {	
+	
 	battle_enemy_ub.head.index = 33;
 	battle_enemy_cotv.head.index = 49;
 	battle_enemy_ukb.type = 2;
 	battle_enemy_ukb.head.index = 13;
 }
+
 if (inRange(time, 9140, 91400))
 {	
 
@@ -775,7 +836,9 @@ if (inRange(time, 9140, 91400))
 		battle_enemy_ukb.head.index = 20;
 	}
 }
-/*
-
-*/
+if (time == 7120)
+{
+	//var shd = instance_create_depth(0,0,0,oShdBlur);
+	//eenFire(shd,EaseInOutSine, 0, false, 0, 60, "flashback_blur", 0, 1);
+}
 room_speed = 60
