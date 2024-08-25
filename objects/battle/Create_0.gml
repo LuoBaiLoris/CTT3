@@ -1,4 +1,5 @@
 live_auto_call
+global.collTime = 0;
 Battle_SetTurnTime(0)
 kr=true
 shield=false

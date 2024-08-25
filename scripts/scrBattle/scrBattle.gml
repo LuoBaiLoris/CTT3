@@ -1,3 +1,5 @@
+global.collTime = 0;
+
 function getArenaWidth(_arena = battle_board)
 {
 	return _arena.right + _arena.left;

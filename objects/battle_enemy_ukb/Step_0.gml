@@ -172,11 +172,11 @@ if (type == 4)
 	var spd = 0.1;
 	var valx = 5;
 	var valy = 5;
-	body.x = x+sin(time*spd/2-0.2)*valx;
+	body.x = x+sin(time*spd/2)*valx;
 	body.y = y-240+150+sin(time*spd)*valy;
-	head.x = x+sin(time*spd/2)*(valx+1)-1;
-	head.y = y-240+100-5+sin(time*spd-0.2)*valy+3;
-	
+	head.x = x+sin(time*spd/2)*(valx+2);
+	head.y = y-240+100-5+sin(time*spd)*valy+3;
+	head.angle = -sin(time*spd/2)*1.5;
 	
 	fire0.x = x+sin(time*spd/2)*(valx+1)-1-16;
 	fire0.y = y-240+100-5+sin(time*spd-0.2)*valy+3;
@@ -184,7 +184,7 @@ if (type == 4)
 	fire1.y = y-240+100-5+sin(time*spd-0.2)*valy+3;
 	
 	
-	head.angle = -sin(time*spd/2)*2;
+	
 	legs.x0 = x+5+sin(time*spd/2-0.2)*valx;
 	legs.x1 = x+5;
 	legs.y0 = y+sin(time*spd)*valy;

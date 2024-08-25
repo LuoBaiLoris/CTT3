@@ -1,8 +1,10 @@
 /// @description Insert description here
 live_auto_call
-
+Anim_Destroy(all);
 //instance_destroy()
-SetTimer(7010);
+index = 0;
+SetTimer(6246);
+fader._gui = false;
 battle_soul.x = 320;
 battle_soul.y = 320;
 battle_board.x = 320;
@@ -14,8 +16,8 @@ battle_board.down = 65;
 battle_board.angle = 0;
 battle_enemy_cotv._headShake = false;
 battle_enemy_gaster.image_alpha = 1;
-
-
+global.collTime = 0;
+_ang = 0;
 
 instance_destroy(oAutoDestory);
 instance_destroy(battle_bullet);
@@ -26,6 +28,7 @@ instance_destroy(battle_enemy_cnr);
 instance_destroy(battle_enemy_ukb);
 instance_destroy(battle_enemy_cotv);
 instance_destroy(battle_enemy_gaster);
+
 
 instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cotv);
 instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cnr);
@@ -39,6 +42,14 @@ sUbGb1.sprite_index = Spr_UbP22_GB;
 sUbGb0.x = 320-160;
 sUbGb1.x = 320+160;
 
+
+instance_destroy(battle_ui);
+instance_destroy(battle_button);
+instance_create_depth(30,404,0,battle_ui);
+instance_create_depth(32+53.5,453,0,battle_button_fight);
+instance_create_depth(185+53.5,453,0,battle_button_act);
+instance_create_depth(345+53.5,453,0,battle_button_item);
+instance_create_depth(500+53.5,453,0,battle_button_mercy);
 
 
 instance_destroy(oCtt3BackGround);
@@ -64,10 +75,17 @@ camera.scale_y = 1;
 camera.target = noone;
 camera.x = 0;
 camera.y = 0;
-
+camera.angle = 0;
+battle_ui.x = 30;
+battle_ui.y = 401;
 
 instance_destroy(oShdBloom);
 instance_destroy(oShdBlur);
 instance_destroy(oShdShadow);
 instance_destroy(oShdRadialBlur);
 instance_destroy(oShdGlitch);
+instance_destroy(oBlur);
+instance_destroy(oWave);
+
+fader.color = c_white;
+fader.alpha = 0;

@@ -80,11 +80,28 @@ if(global.vape){
 	//Player_SetName("Vape")
 	//if(instance_exists(menu)){menu._naming_name="Vape"}
 	}
-if(global.tas=true){
-if(keyboard_check(vk_lalt)){
-room_speed-=1}
-if(keyboard_check(vk_ralt)){
-room_speed+=1}
+if(global.tas=true)
+{
+	if(keyboard_check(vk_lalt))
+	{
+		room_speed-=1
+	}
+	if(keyboard_check(vk_ralt))
+	{
+		room_speed+=1
+	}
+	if(keyboard_check(ord("J")))
+	{
+		room_speed = 60;
+	}
+	if(keyboard_check(ord("K")))
+	{
+		room_speed = 30;
+	}
+	if(keyboard_check(ord("L")))
+	{
+		room_speed = 20;
+	}
 }
 if(keyboard_check_pressed(vk_backspace)){
 CC_Add(GetString("str_mobile_control_hint"))

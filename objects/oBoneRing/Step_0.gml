@@ -10,8 +10,11 @@ for(var i = 0;i<number;i++)
 		bone.y = y+lengthdir_y(offset, image_angle+i*360/number);
 		bone.image_angle = image_angle+i*360/number+angle;
 		bone.length = length;
-		bone._color = _color;
 		bone.mask = mask;
 		bone.depth = depth;
 	}
+}
+if !(mask)
+{
+	depth = DEPTH_BATTLE.BULLET_OUTSIDE_HIGH;
 }

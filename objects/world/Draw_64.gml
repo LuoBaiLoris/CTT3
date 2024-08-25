@@ -22,6 +22,11 @@ if(global.tas=true){
 	draw_set_color(c_white)
 	draw_set_font(GetFont("font_menu"))
 	draw_text_scribble(0,0,GetString("str_tas_warning"))
+	
+	draw_set_halign(fa_left)
+	draw_set_color(c_white)
+	draw_set_font(GetFont("font_menu"))
+	draw_text_scribble(0,100,"collTime : "+string(global.collTime))
 }
 if(global.vape){draw_sprite_ext(spr_vape,0,camera.width-(sprite_get_width(spr_vape)*0.25),0,0.25,0.25,0,c_white,1)}
 if(keyboard_check(vk_escape)&&!instance_exists(char_player)){

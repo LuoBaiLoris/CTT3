@@ -18,4 +18,8 @@ if (type == 2)
 if (type == 3)
     image_blend = make_color_rgb(255, 25, 212)
 
-if(place_meeting(x,y,battle_soul_graze)){with(battle_soul_graze){event_user(0)}}
+if (place_meeting(x, y, battle_soul))
+{
+	Player_SetInv(0);
+	event_user(0);
+}

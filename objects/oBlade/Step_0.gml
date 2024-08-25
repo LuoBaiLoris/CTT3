@@ -34,6 +34,7 @@ function MOVING()
 }
 if (place_meeting(x, y, battle_soul))
 {
+	Player_SetInv(0);
 	event_user(0);
 }
 //show_debug_message(image_xscale)

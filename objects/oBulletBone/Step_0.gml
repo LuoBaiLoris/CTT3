@@ -8,6 +8,7 @@ function MOVING()
 
 if (place_meeting(x, y, battle_soul))
 {
+	Player_SetInv(0);
 	event_user(0);
 }
 var tarClrs = [[255,255,255],[0,255,255],[242,135,33]]
