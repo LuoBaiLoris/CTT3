@@ -195,6 +195,7 @@ if (keyboard_check_pressed(ord("W")))
 
 
 //camera
+
 if (inRange(time, 3910, 5460))
 {	
 	camera.x = sin(time*0.05)*15;
@@ -230,6 +231,7 @@ if (inRange(time, 8500, 76700))
 	camera.y = 0;
 	camera.angle = cos(time*0.05)*1.5;
 }
+
 //*animation
 if (time == 5400)
 {
@@ -407,7 +409,7 @@ if (time == 7760)
 if (inRange(time, 7500, 7670))
 {	
 }
-if time == 7500
+if (time == 7500)
 {
 	fader.color = c_black;
 	TweenFire(fader,EaseLinear, 0, false, 0, 7400-7120, "alpha", 0, 0.85);
@@ -441,6 +443,8 @@ if (time == 8410)
 	battle_enemy_gaster.image_alpha = 0;
 	instance_destroy(battle_ui);
 	instance_destroy(battle_button);
+	instance_destroy(ubGb1);
+	instance_destroy(battle_bullet);
 	_ukbAnim = instance_create_depth(320,320+100,-1000, oSprite);
 	_ukbAnim.sprite_index = Spr_UkbP3_Patches_Anim0;
 	_ukbAnim.image_speed = 0;
@@ -498,6 +502,8 @@ if (time == 8500)
 	battle_enemy_cotv.y = 320-80;
 	battle_enemy_cnr.x = 320+80;
 	battle_enemy_cnr.y = 320-80;
+	instance_destroy(battle_ui);
+	instance_destroy(battle_button);
 	instance_create_depth(30,404,0,battle_ui);
 	instance_create_depth(32+53.5,453,0,battle_button_fight);
 	instance_create_depth(185+53.5,453,0,battle_button_act);
@@ -886,8 +892,7 @@ if (time == 4395)
 }
 if (time == 4395)
 {
-	_awa = boneRing(320-145,320,3, 100, 10000, 5, 0, true, 0, true);
-	_awa._color = 2;
+	_awa = boneRing(320-145,320,3, 100, 10000, 5, 2, true, 0, true);
 	TweenFire(_awa,EaseOutSine, 0, false, 0, 0, "offset", 100, 20);
 	bone = boneCreate(320-145, 320, 0, 35, false, 1);
 	bone.rotate = -3;
@@ -1203,16 +1208,259 @@ if (inRange(time, 6240, 6248,3))
 	var _angle = time+(360/15*index*sin(time*0.05)*5)+index1;
 	var _length = 80;
 	//Battle_MakeBlaster(320+lengthdir_x(_length+360, _angle),320+lengthdir_y(_length+360, _angle),320+lengthdir_x(_length, _angle),320+lengthdir_y(_length, _angle), _angle-90, _angle-90, 30+index*12, 1,2, 4, 24, 0);
-	index ++;
+	//index ++;
 }
+
 if (time == 6248)
 {
 	_br = boneRing(320,320,4,50,30,3, 0, 0, 90, false);
-Battle_MakeGB_ub_blue(0,0,320+180,320,0,180, 0, 30);
+	
+}
 
+if (time == 6250)
+{
+	index = choose(0,1);
+	Battle_SetSoul(battle_soul_blue);
+	if (index == 0)
+	{
+		BlueSoulControl(DIR.LEFT);
+		Battle_MakeGB_ub_blue(0,0,320-180,320,0,0, 0, 30);
+	}
+	else
+	{
+		BlueSoulControl(DIR.RIGHT);
+		Battle_MakeGB_ub_blue(0,0,320+180,320,0,180, 0, 30);
+	}
+
+	
+}
+
+if (time == 6280)
+{
+	Battle_SetSoul(battle_soul_orange);
 }
 if (inRange(time, 6260, 6320, 15))
 {
 	leftDB(5, 50, 0);
 	rightUB(5, 50, 0);
 }
+if (inRange(time, 6340, 6370, 3))
+{
+	var _angle = 90+irandom_range(-10,10)
+	var _length = 80;
+	Battle_MakeBlaster(battle_soul.x+lengthdir_x(_length+360, _angle),battle_soul.y+lengthdir_y(_length+360, _angle),battle_soul.x+lengthdir_x(_length, _angle),battle_soul.y+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 1,2, 4, 30, 0);
+}
+if (inRange(time, 6300, 6340, 3))
+{
+	var _angle = 0;
+	var _length = 80;
+	if (index == 0)
+	{
+		_angle = irandom_range(-10,10);
+	}
+	else
+	{
+		_angle = 180+irandom_range(-10,10);
+	}
+
+	Battle_MakeBlaster(battle_soul.x+lengthdir_x(_length+360, _angle),battle_soul.y+lengthdir_y(_length+360, _angle),battle_soul.x+lengthdir_x(_length, _angle),battle_soul.y+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 1,2, 4, 30, 0);
+}
+
+if (inRange(time, 6340, 7030))
+{
+	battle_board.angle = sin((time-6340)*0.05)*20;
+	_br.offset = 50+sin((time-6340)*0.05)*20;
+}
+if (inRange(time, 6430, 7000,30+21))
+{
+
+	bladeCreate(battle_soul.x, battle_soul.y, irandom(360), 0.8, 0, 30);
+
+}
+if (time == 6400)
+{
+	var a = boneCreate(320-65,320-65,0,180,0, 0, 600, true);
+	var b = boneCreate(320+65,320+65,0,180,0,0, 600, true);
+	a.rotate = -2;
+	b.rotate = -2;
+}
+if (time == 7030)
+{
+	instance_destroy(oBoneRing);
+}
+if (time == 7400)
+{
+	battle_board.angle = 0;
+	Battle_SetSoul(battle_soul_orange);
+	battle_board.right = 280;
+	battle_board.left = 280;
+	TweenFire(battle_board, EaseLinear, 0, false, 0 , 60*5, "right", 280, 20);
+	TweenFire(battle_board, EaseLinear, 0, false, 0 , 60*5, "left", 280, 20);
+}
+if (inRange(GetTimer(), 7400, 7400+5*60))
+{
+	if (time%40 == 0)
+	{
+		downLB(4, 65, 0);
+	}
+	else if(time%40 == 20)
+	{
+		upRB(4, 65, 0);
+	}
+	else if(time%15 == 0) && (time < 7650)
+	{
+		var _angle = 0;
+		var _length = 80;
+		_angle = irandom(360);
+		Battle_MakeBlaster(battle_soul.x+lengthdir_x(_length+360, _angle),battle_soul.y+lengthdir_y(_length+360, _angle),battle_soul.x+lengthdir_x(_length, _angle),battle_soul.y+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 1,2, 4, 30, 0);
+	}
+}
+if (time == 7680)
+{
+	array = [];
+	var i = 0;
+	repeat(12)
+	{
+		var _bone = boneCreate(320,320,0, 60, 1, 0, 60+20, true);
+		array[i] = _bone;
+		i ++
+	}
+	var i = 0;
+	repeat(array_length(array))
+	{
+		if (i%2==0)
+		{
+			array[i].image_angle = 0;
+			array[i].x = 320+40;
+			array[i].y = 320-30+i*10-20;
+			TweenFire(array[i], EaseOutBounce , 0, false, 5+(array_length(array)-i)*3, 30, "x", array[i].x, 320-20)
+		}
+		else if(i%2 == 1)
+		{
+			array[i].image_angle = 180;
+			array[i].x = 320-40;
+			array[i].y = 320-30+i*10-20;
+			TweenFire(array[i], EaseOutBounce , 0, false, 5+(array_length(array)-i)*3, 30, "x", array[i].x, 320+20)
+		}
+		i++
+	}
+}
+if (time == 7760)
+{
+	Battle_MakeGB_ub_yellow(0,0,320+180,320-60,0,180, 0, 10);
+	sUbGb1.x = 3200;
+	ubGb1 = instance_create_depth(320+65,120,DEPTH_BATTLE.BULLET_OUTSIDE_HIGH, oSprite);
+	ubGb1.sprite_index = Spr_UbP22_GB;
+	ubGb1.image_xscale = 2;
+	ubGb1.image_yscale = 2;
+	
+	battle_board.right = 20;
+	battle_board.left = 20;
+	TweenFire(battle_board,EaseOutBack, 0, false, 30+0, 30, "angle", 0, 90);
+	TweenFire(battle_board,EaseOutSine, 0, false, 30+0, 30, "up", 65, 290);
+	TweenFire(battle_board,EaseOutSine, 0, false, 30+0, 30, "down", 65, 290);
+	TweenFire(battle_board,EaseOutSine, 0, false, 30+0, 30, "left", 20, 60);
+
+
+}
+if (inRange(GetTimer(), 7760, 8400))
+{
+	if (time%10 == 0) && (time >= 7800)
+	{
+		var i = 0;
+		repeat(12)
+		{
+			var _bone = boneCreate(ubGb1.x,ubGb1.y,360/12*i, 20, 0, 1, true, false);
+			_bone.rotate = 5
+			_bone.direction = 360/12*i+sin(time*0.02)*360;
+			_bone.speed = 8;
+			_bone.gravity = 0.1;
+			_bone.gravity_direction = 180+point_direction(ubGb1.x,ubGb1.y, battle_soul.x, battle_soul.y)
+			i ++
+		}
+	}
+	ubGb1.x = lerp(ubGb1.x,battle_soul.x,0.08);
+	ubGb1.y = lerp(ubGb1.y,battle_soul.y-180,0.08);
+}
+if (inRange(GetTimer(), 7760,8400, 120))
+{
+	TweenFire(battle_board,animcurve_get_channel(acBacks, 0), 0, false, 0, 60, "right", 20, 60);
+	var i = 0;
+	var k = 0;
+	repeat(15)
+	{
+		if (choose(0,1) == 1)&&(k<10)
+		{
+			var _rnd = k+irandom(30);
+			var a = instance_create_depth(320-290+40*i+10,320-40,DEPTH_BATTLE.BULLET_OUTSIDE_HIGH, oWingdings);
+			a.mask = true;
+			a.alarm[1] = 300;	
+			TweenFire(a, EaseInSine, 0, false, 0+_rnd*2 , 60, "y", a.y, 320+65-10);
+			TweenFire(a, EaseLinear, 0, false, 60+_rnd*2 , 60, "vspeed", -5,5);
+			TweenFire(a, EaseLinear, 0, false, 60+_rnd*2 , 10, "hspeed", 0, irandom_range(-2,2));
+			k++;
+		}
+		i ++
+	}
+	
+}
+if (time == 8500)
+{
+	Battle_SetSoul(battle_soul_red);
+	battle_soul.x = 320;
+	battle_soul.y = 320;
+	battle_board.x = 320;
+	battle_board.y = 320;
+	battle_board.right = 65;
+	battle_board.left = 65;
+	battle_board.up = 65;
+	battle_board.down = 65;
+	battle_board.angle = 0;
+}
+if (inRange(GetTimer(), 8500,8800, 40))
+{
+	var _rnd = irandom(3)
+	bladeCreate(battle_soul.x, battle_soul.y, irandom(360), 0.8);
+	BlueSoulControl(_rnd*90);
+	if(_rnd==0)
+	{
+		boneWall(DIR.RIGHT, 50,0,20,5,10);
+		leftDB(5, 60, 0, 1);
+		leftUB(5, 60, 0 ,1);		
+	}
+	else if (_rnd==1)
+	{
+		downRB(5, 60, 0, 1);
+		downLB(5, 60, 0 ,1);	
+		boneWall(DIR.UP, 50,0,20,5,10);
+	}
+	else if (_rnd==2)
+	{
+		boneWall(DIR.LEFT, 50,0,20,5,10);
+		rightDB(5, 60, 0, 1);
+		rightUB(5, 60, 0 ,1);	
+	}
+	else if (_rnd==3)
+	{
+		upRB(5, 60, 0, 1);
+		upLB(5, 60, 0 ,1);	
+		boneWall(DIR.DOWN, 50,0,20,5,10);
+	}
+}
+if (time == 8800)
+{
+	Battle_SetSoul(battle_soul_red);
+	index2 = irandom(30)
+}
+if (inRange(GetTimer(), 8800, 8900, 5))
+{
+	//downLB(2.25, 65, 0);
+	upRB(5, 65+sin(time*0.05+index2)*30-30, 0);
+	downRB(5, 65-sin(time*0.05+index2)*30, 0);
+
+}
+if (inRange(GetTimer(), 8800, 8900, 30))
+{
+	var a = bladeCreate(battle_soul.x, battle_soul.y, 0, 0.8, 0, 5);
+}
+room_speed = 60

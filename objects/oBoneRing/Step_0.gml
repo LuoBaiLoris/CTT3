@@ -12,6 +12,7 @@ for(var i = 0;i<number;i++)
 		bone.length = length;
 		bone.mask = mask;
 		bone.depth = depth;
+		bone._color = _color;
 	}
 }
 if !(mask)

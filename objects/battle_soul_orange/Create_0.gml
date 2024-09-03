@@ -1,3 +1,4 @@
+live_auto_call
 event_inherited();
 SPD=0
 moveable=true;
@@ -12,3 +13,8 @@ downable = 1
 upable = 1
 dir = -1
 a = 0
+
+dash = false;
+dashTime = -1;
+dashCD = 0;
+

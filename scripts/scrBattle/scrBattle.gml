@@ -410,6 +410,7 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 	audio_play_sound(snd_exclamation, 0, 0);
 	var _val, _x, _y, _bones = [];
 	//14
+	var _arena = battle_board;
 	switch(_dir)
 	{
 		case DIR.UP:
@@ -480,19 +481,29 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 	repeat(array_length(_bones))
 	{
 		var inst = _bones[i];
-		animCreate(inst, "x", ANIM_TWEEN.SINE, 1, 0, inst.x, -lengthdir_x(_length, _dir+getArenaAngle()), _moveTime, _warnTime);
-		animCreate(inst, "y", ANIM_TWEEN.SINE, 1, 0, inst.y, -lengthdir_y(_length, _dir+getArenaAngle()), _moveTime, _warnTime);
-		
-		animCreate(inst, "x", acShake, 0, 0, inst.x-lengthdir_x(_length, _dir+getArenaAngle()), -lengthdir_x(3, _dir+getArenaAngle()+90), 1.5,_moveTime+_warnTime);
-		animCreate(inst, "y", acShake, 0, 0, inst.y-lengthdir_y(_length, _dir+getArenaAngle()), -lengthdir_y(3, _dir+getArenaAngle()+90), 1.5,_moveTime+_warnTime);
-		
-		animCreate(inst, "x", ANIM_TWEEN.SINE, 0, 0, inst.x-lengthdir_x(_length, _dir+getArenaAngle()), lengthdir_x(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
-		animCreate(inst, "y", ANIM_TWEEN.SINE, 0, 0, inst.y-lengthdir_y(_length, _dir+getArenaAngle()), lengthdir_y(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
+		TweenFire(inst, EaseOutSine, 0, false, _warnTime, _moveTime, "x", inst.x, inst.x-lengthdir_x(_length, _dir+getArenaAngle()));
+		TweenFire(inst, EaseOutSine, 0, false, _warnTime, _moveTime, "y", inst.y, inst.y-lengthdir_y(_length, _dir+getArenaAngle()));
+		//animCreate(inst, "x", ANIM_TWEEN.SINE, 1, 0, inst.x, -lengthdir_x(_length, _dir+getArenaAngle()), _moveTime, _warnTime);
+		//animCreate(inst, "y", ANIM_TWEEN.SINE, 1, 0, inst.y, -lengthdir_y(_length, _dir+getArenaAngle()), _moveTime, _warnTime);
+		TweenFire(inst, animcurve_get_channel(acShake, 0), 0, false, _moveTime+_warnTime, 5, "x", inst.x-lengthdir_x(_length, _dir+getArenaAngle()), inst.x-lengthdir_x(_length, _dir+getArenaAngle())-lengthdir_x(3, _dir+getArenaAngle()+90))
+		TweenFire(inst, animcurve_get_channel(acShake, 0), 0, false, _moveTime+_warnTime, 5, "y", inst.y-lengthdir_y(_length, _dir+getArenaAngle()), inst.y-lengthdir_y(_length, _dir+getArenaAngle())-lengthdir_y(3, _dir+getArenaAngle()+90))
+		//animCreate(inst, "x", animcurve_get_channel(acShake, 0), 0, 0, inst.x-lengthdir_x(_length, _dir+getArenaAngle()), -lengthdir_x(3, _dir+getArenaAngle()+90), 1.5,_moveTime+_warnTime);
+		//animCreate(inst, "y", animcurve_get_channel(acShake, 0), 0, 0, inst.y-lengthdir_y(_length, _dir+getArenaAngle()), -lengthdir_y(3, _dir+getArenaAngle()+90), 1.5,_moveTime+_warnTime);
+		TweenFire(inst, EaseOutSine, 0, false, _warnTime+_keepTime+_moveTime, _moveTime, "x", inst.x-lengthdir_x(_length, _dir+getArenaAngle()), inst.x);
+		TweenFire(inst, EaseOutSine, 0, false, _warnTime+_keepTime+_moveTime, _moveTime, "y", inst.y-lengthdir_y(_length, _dir+getArenaAngle()), inst.y);
+		//animCreate(inst, "x", ANIM_TWEEN.SINE, 0, 0, inst.x-lengthdir_x(_length, _dir+getArenaAngle()), lengthdir_x(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
+		//animCreate(inst, "y", ANIM_TWEEN.SINE, 0, 0, inst.y-lengthdir_y(_length, _dir+getArenaAngle()), lengthdir_y(_length, _dir+getArenaAngle()), _moveTime, _warnTime+_keepTime+_moveTime);
 		inst.alarm[1] = _warnTime+_keepTime+_moveTime*2
 		i ++;
 	}
+	var _sound = function()
+	{
+	    audio_stop_sound(snd_spearrise);
+		audio_play_sound(snd_spearrise, 0, 0);
+	}
+	call_later(_warnTime, time_source_units_frames, _sound, false)
 	var warn = spriteCreate(sPx2d, _x-lengthdir_x(_length, _dir+getArenaAngle()), _y-lengthdir_y(_length, _dir+getArenaAngle()), LAYER.G, true, _dir+getArenaAngle()-90, 1, getArenaWidth(), 1);
-	warn.alarm[1] = _warnTime+_moveTime;
+	warn.alarm[0] = _warnTime+_moveTime;
 	return _bones
 }
 function thornCreate(_preX, _preY, _preAngle, _tarX, _tarY, _tarAngle, _moveTime = 60, _spd = 8)

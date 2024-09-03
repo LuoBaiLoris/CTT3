@@ -1,4 +1,4 @@
-
+live_auto_call
 event_inherited();
 if (keyboard_check(vk_up) && keyboard_check(vk_right))
     dir = 45
@@ -31,6 +31,7 @@ if (Battle_GetState() == (3 << 0) && moveable && mode != 1 && dir != -1)
 }
 if (mode == 1)
 {
+	/*
     SPD = Player_GetSpdTotal()
     SPD=(Input_IsHeld(INPUT.CANCEL) ? SPD/2 : SPD);
     repeat (SPD * 15)
@@ -46,4 +47,32 @@ if (mode == 1)
                 y += 0.1
         }
     }
+	*/
+}
+if (dashCD > 0)
+{
+	dashCD --;
+}
+if (Input_IsPressed(INPUT.CONFIRM))
+{
+	if (dashCD <= 0)
+	{
+		dash = true;
+		dashTime = -1;
+	}
+}
+if (dash)
+{
+	dashTime ++;
+	direction = dir;
+	speed = 5;
+	alarm[0] = 5;
+	//image_index = 1;
+	battle_soul._inv=5
+	if (dashTime >= 5)
+	{
+		speed = 0;
+		dash = false;
+		dashCD = 30;
+	}
 }

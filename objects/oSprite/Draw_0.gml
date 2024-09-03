@@ -2,19 +2,16 @@ live_auto_call
 
 if (!_gui) 
 {
-	if (mask)
-	{
-		if surface_exists(global.mask)
-		{
-			surface_set_target(global.mask);
-			draw_self();
-			surface_reset_target();
-		}
-	}
-	else 
-	{
-		draw_self();
-	}
+	if(!mask){
+	depth=DEPTH_BATTLE.BULLET_OUTSIDE_HIGH
+	draw_self()
+}else{
+	depth=DEPTH_BATTLE.BULLET
+	surface_set_target(Battle_GetBoardSurface());{
+		draw_self()
+	}surface_reset_target();
+}
+
 }
 
 

@@ -3,7 +3,7 @@ inst.x=x
 inst.y=y
 time++
 direction=image_angle
-effect=instance_create_depth(x,y,depth,obj_yellow_gb_effect)
+effect=instance_create_depth(x,y,depth,obj_blue_gb_effect)
 effect.image_xscale=0.45
 effect.image_yscale=0.45
 effect.image_angle=image_angle

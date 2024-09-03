@@ -12,7 +12,7 @@ else if(mask)
 	//shd._alpha_spd = _alpha_spd;
 	shd.image_blend = image_blend;
 	shd.image_alpha = image_alpha;
-	TweenFire(shd, Ease , "once", false, 0, _shdLife, "image_alpha", image_alpha, -image_alpha);
+	TweenFire(shd, EaseLinear , "once", false, 0, _shdLife, "image_alpha", image_alpha, -image_alpha);
 	shd.image_angle = image_angle;
 	shd.image_xscale = image_xscale;
 	shd.image_yscale = image_yscale;

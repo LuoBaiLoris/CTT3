@@ -29,10 +29,21 @@ if (_canHurt)
 					Battle_CallSoulEventHurt();
 					if(battle.kr)
 					{
-					Player_HurtKR()
+						Player_HurtKR()
 					}else
 					{
-					Player_Hurt(Battle_GetDamage(damage_multipy));
+						Player_Hurt(Battle_GetDamage(damage_multipy));
+					}
+				}
+				else if(object_exists(battle_soul_orange))
+				{
+					Battle_CallSoulEventHurt();
+					if(battle.kr)
+					{
+						Player_HurtKR()
+					}else
+					{
+						Player_Hurt(Battle_GetDamage(damage_multipy));
 					}
 				}
 			}
