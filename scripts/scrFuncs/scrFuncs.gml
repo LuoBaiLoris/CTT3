@@ -61,3 +61,13 @@ function SetTimer(_time)
 {
 	oTimer.timer = _time-1;
 }
+
+function Battle_BulletColor(_clr)
+{
+	var tarClrs = [[255,255,255],[0,255,255],[242,135,33]]
+	var _blend = make_color_rgb(tarClrs[_clr][0], tarClrs[_clr][1], tarClrs[_clr][2]);
+
+	return _blend;
+
+	
+}

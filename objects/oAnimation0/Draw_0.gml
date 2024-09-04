@@ -12,7 +12,7 @@ if (time > 1460)
 	repeat (array_length(array))
 	{
 		var spr = array[i];
-		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, spr.xscale, spr.yscale, spr.angle, spr.blend, spr.alpha);
+		draw_sprite_ext(spr.sprite, spr.index, spr.x, spr.y, spr.xscale, spr.yscale, spr.angle, spr.blend, image_alpha);
 		i ++;
 	}
 }

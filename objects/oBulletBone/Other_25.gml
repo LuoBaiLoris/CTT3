@@ -35,7 +35,7 @@ if (_canHurt)
 						Player_Hurt(Battle_GetDamage(damage_multipy));
 					}
 				}
-				else if(object_exists(battle_soul_orange))
+				else if(instance_exists(battle_soul_orange))
 				{
 					Battle_CallSoulEventHurt();
 					if(battle.kr)

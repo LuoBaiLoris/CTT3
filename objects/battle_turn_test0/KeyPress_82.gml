@@ -4,7 +4,7 @@ Anim_Destroy(all);
 //instance_destroy()
 index = 0;
 
-_Timer = 8800;
+_Timer = 10700;
 SetTimer(_Timer);
 fader._gui = false;
 battle_soul.x = 320;
@@ -30,6 +30,7 @@ instance_destroy(battle_enemy_cnr);
 instance_destroy(battle_enemy_ukb);
 instance_destroy(battle_enemy_cotv);
 instance_destroy(battle_enemy_gaster);
+instance_destroy(oCtt3BackGround1);
 
 
 instance_create_depth(x, y, DEPTH_BATTLE.ENEMY, battle_enemy_cotv);
@@ -110,6 +111,9 @@ camera.target = noone;
 camera.x = 0;
 camera.y = 0;
 camera.angle = 0;
+camera._x = 0;
+camera._y = 0;
+camera._angle = 0;
 battle_ui.x = 30;
 battle_ui.y = 401;
 

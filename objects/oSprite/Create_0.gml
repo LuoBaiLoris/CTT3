@@ -1,5 +1,5 @@
 live_auto_call
-
+alarm[0] = infinity
 _shadow = false;
 _autoDestroy = false;
 _gui = false;

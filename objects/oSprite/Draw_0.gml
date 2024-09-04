@@ -3,7 +3,6 @@ live_auto_call
 if (!_gui) 
 {
 	if(!mask){
-	depth=DEPTH_BATTLE.BULLET_OUTSIDE_HIGH
 	draw_self()
 }else{
 	depth=DEPTH_BATTLE.BULLET

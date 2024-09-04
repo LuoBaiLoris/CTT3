@@ -85,7 +85,7 @@ camera_set_view_angle(_camera, image_angle);
 ///*
 if(!instance_exists(target)){
 	camera_set_view_target(_camera,noone);
-	camera_set_view_pos(_camera,x+_shake_pos_x,y+_shake_pos_y);
+	camera_set_view_pos(_camera,x+_shake_pos_x+_x,y+_shake_pos_y+_y);
 }else{
 	camera_set_view_target(_camera,target);
 	camera_set_view_border(_camera,width/scale_x/2,height/scale_y/2);
@@ -94,4 +94,4 @@ if(!instance_exists(target)){
 	y=camera_get_view_y(_camera);
 }
 camera_set_view_size(_camera,width/scale_x,height/scale_y);
-camera_set_view_angle(_camera,angle);
+camera_set_view_angle(_camera,angle+_angle);

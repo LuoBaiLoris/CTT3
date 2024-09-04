@@ -404,7 +404,7 @@ function blueSoul(ang)
 	}
 }
 */
-function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTime = 10)
+function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTime = 10, _clr = 0)
 {
 	audio_stop_sound(snd_exclamation);
 	audio_play_sound(snd_exclamation, 0, 0);
@@ -462,17 +462,17 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 	var i = _val;
 	repeat (_val)
 	{
-		var bone = boneCreate(_x+lengthdir_x(10*i+_space, _dir-90+getArenaAngle()), _y+lengthdir_y(10*i+_space, _dir-90+getArenaAngle()), (_dir+getArenaAngle())%360, _length+10, true, 0, infinity, true);
+		var bone = boneCreate(_x+lengthdir_x(10*i+_space, _dir-90+getArenaAngle()), _y+lengthdir_y(10*i+_space, _dir-90+getArenaAngle()), (_dir+getArenaAngle())%360, _length+10, true, _clr, infinity, true);
 		array_insert(_bones, array_length(_bones), bone);
 		i --;
 	}
-	var bone = boneCreate(_x, _y, (_dir+getArenaAngle())%360, _length+10, true, 0, infinity, true);
+	var bone = boneCreate(_x, _y, (_dir+getArenaAngle())%360, _length+10, true, _clr, infinity, true);
 	array_insert(_bones, array_length(_bones), bone)
 	var i = 0;
 	repeat (_val)
 	{
 		i ++;
-		var bone = boneCreate(_x+lengthdir_x(10*i+_space, _dir+90+getArenaAngle()), _y+lengthdir_y(10*i+_space, _dir+90+getArenaAngle()), (_dir+getArenaAngle())%360, _length+10, true, 0, infinity, true);
+		var bone = boneCreate(_x+lengthdir_x(10*i+_space, _dir+90+getArenaAngle()), _y+lengthdir_y(10*i+_space, _dir+90+getArenaAngle()), (_dir+getArenaAngle())%360, _length+10, true, _clr, infinity, true);
 		array_insert(_bones, array_length(_bones), bone);
 	}
 	
@@ -502,7 +502,7 @@ function boneWall(_dir, _length, _space, _warnTime = 10, _moveTime = 10, _keepTi
 		audio_play_sound(snd_spearrise, 0, 0);
 	}
 	call_later(_warnTime, time_source_units_frames, _sound, false)
-	var warn = spriteCreate(sPx2d, _x-lengthdir_x(_length, _dir+getArenaAngle()), _y-lengthdir_y(_length, _dir+getArenaAngle()), LAYER.G, true, _dir+getArenaAngle()-90, 1, getArenaWidth(), 1);
+	var warn = spriteCreate(sPx2d, _x-lengthdir_x(_length, _dir+getArenaAngle()), _y-lengthdir_y(_length, _dir+getArenaAngle()), LAYER.G, true, _dir+getArenaAngle()-90, 1, getArenaWidth(), 1, Battle_BulletColor(_clr));
 	warn.alarm[0] = _warnTime+_moveTime;
 	return _bones
 }

@@ -225,11 +225,17 @@ if (inRange(time, 8410, 8500))
 	camera.y = 0;
 	camera.angle = 0;
 }
-if (inRange(time, 8500, 76700))
+if (inRange(time, 8500, 10700+180))
 {	
 	camera.x = sin(time*0.05)*15;
 	camera.y = 0;
 	camera.angle = cos(time*0.05)*1.5;
+}
+if (inRange(time, 10700+180, 76700))
+{	
+	camera.x = 0;//sin(time*0.05)*15;
+	camera.y = 0;
+	camera.angle = 0;//cos(time*0.05)*1.5;
 }
 
 //*animation
@@ -717,7 +723,7 @@ if (time == 9140)
 	battle_enemy_ukb.head.index = 13;
 }
 
-if (inRange(time, 9240, 91400))
+if (inRange(time, 9240, 10700+180))
 {	
 
 	//battle_enemy_cotv.head.index +=0.1;
@@ -752,6 +758,21 @@ if (inRange(time, 9240, 91400))
 		battle_enemy_ukb.head.index = 20;
 	}
 }	
+
+if (time >= 10700+180)
+{	
+	battle_enemy_ukb.image_alpha = 0;
+	battle_enemy_ub.image_alpha = 0;
+	battle_enemy_cotv.image_alpha = 0;
+	battle_enemy_cnr.image_alpha = 0;
+	battle_enemy_gaster.image_alpha = 0;
+	sUbGb1.x = 18000;
+	sUbGb0.x = 18000;
+	//instance_destroy(battle_ui);
+	instance_destroy(battle_button);
+}	
+
+
 if (time == 7120)
 {
 	_shd = instance_create_depth(0,0,0,oBlur);
@@ -1450,17 +1471,197 @@ if (inRange(GetTimer(), 8500,8800, 40))
 if (time == 8800)
 {
 	Battle_SetSoul(battle_soul_red);
-	index2 = irandom(30)
+	index = 180+irandom_range(-90,90);
 }
+//show_debug_message(dsin(90))
 if (inRange(GetTimer(), 8800, 8900, 5))
 {
 	//downLB(2.25, 65, 0);
-	upRB(5, 65+sin(time*0.05+index2)*30-30, 0);
-	downRB(5, 65-sin(time*0.05+index2)*30, 0);
+	
+	upRB(5, 65+dsin(time/0.3+(index-90))*30-10, 0);
+	downRB(5, 65-dsin(time/0.3+(index-90))*30-20, 0);
 
 }
 if (inRange(GetTimer(), 8800, 8900, 30))
 {
 	var a = bladeCreate(battle_soul.x, battle_soul.y, 0, 0.8, 0, 5);
+}
+if (time == 8900)
+{
+	
+	TweenFire(battle_board, EaseInOutBack, 0, false, 0 , 70, "angle", 0, 90);
+	
+	with(battle_board)
+	{
+		TweenFire(id, animcurve_get_channel(acBacks,0), 0, false, 0 , 60, "left", left, left-40);
+		TweenFire(id, animcurve_get_channel(acBacks,0), 0, false, 0 , 60, "right", right, right-40);
+		TweenFire(id, animcurve_get_channel(acBacks,0), 0, false, 0 , 60, "down", down, down-40);
+		TweenFire(id, animcurve_get_channel(acBacks,0), 0, false, 0 , 60, "up", up, up-40);
+	}
+	
+	var i = 0
+	repeat(5)
+	{
+		var _angle = 360/5*i;
+		var _length = 80;
+		Battle_MakeBlaster(320+lengthdir_x(_length+360, _angle),320+lengthdir_y(_length+360, _angle),320+lengthdir_x(_length, _angle),320+lengthdir_y(_length, _angle), _angle-90, _angle-90+30, 3, 2,2, 10, 30, 0);
+		i ++;
+	}
+}
+if (time == 8930)
+{
+	var i = 0
+	repeat(4)
+	{
+		var _angle = i*90+index;
+		var _length = 80;
+		Battle_MakeBlaster(320+lengthdir_x(_length+360, _angle),320+lengthdir_y(_length+360, _angle),320+lengthdir_x(_length, _angle),320+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 2,2, 10, 30, 0);
+		i ++;
+	}
+}
+if (time == 8980)
+{
+	index = 0;
+}
+
+if (inRange(GetTimer(), 8980,9140, 20))
+{
+	index ++;
+	index%=4;
+	if(index==0)
+	{
+		upRB(5, 65,0);
+		upLB(5, 65,0);
+		downRB(5, 65,0, 2);
+		downLB(5, 65,0, 2);	
+	}
+	else if (index==1)
+	{
+		rightUB(5, 65,0);
+		rightDB(5, 65,0);
+		leftUB(5, 65,0, 2);
+		leftDB(5, 65,0, 2);	
+	}
+	else if (index==2)
+	{
+		downRB(5, 65,0);
+		downLB(5, 65,0);
+		upRB(5, 65,0, 2);
+		upLB(5, 65,0, 2);	
+	}
+	else if (index==3)
+	{
+		leftDB(5, 65,0);
+		leftUB(5, 65,0);
+		rightDB(5, 65,0, 2);
+		rightUB(5, 65,0, 2);
+	}
+}
+if (time == 9140)
+{
+	boneWall(DIR.UP, 130,0,0,5,100, 1);
+	index = 0;
+}
+
+if (time == 9240)
+{
+	battle_board.angle = 0;
+	with(battle_board)
+	{
+		TweenFire(id, EaseOutSine, 0, false, 0 , 60, "left", left, 180);
+		TweenFire(id, EaseOutSine, 0, false, 0 , 60, "right", right, 180);
+	}
+	BlueSoulControl(270);
+	bone0 = boneCreate(320,320+10,90,60,0,1, false);
+	bone1 = boneCreate(320,320+10,90,60,0,2, false);
+
+}
+if (inRange(GetTimer(), 9240,9800, 20))
+{
+	downLB(5, 30,0);
+}
+if (inRange(GetTimer(), 9240,9890, 70))
+{
+	index++;
+	if (index%2==0)
+	{
+		BlueSoulControl(270);
+	}
+	else
+	{
+		BlueSoulControl(90);
+	}
+	
+	repeat(1)
+	{
+		var _angle = irandom(360);
+		var _length = 80;
+		Battle_MakeBlaster(battle_soul.x+lengthdir_x(_length+360, _angle),battle_soul.y+lengthdir_y(_length+360, _angle),battle_soul.x+lengthdir_x(_length, _angle),battle_soul.y+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 1,2, 10, 30, 0);
+	}
+
+}
+if (inRange(GetTimer(), 9240,9890))
+{
+	var size = 1+0.5+sin(time*0.05)*0.5;
+	camera.scale_x = size;
+	camera.scale_y = size;
+	camera._x = battle_soul.x-640/size/2;
+	camera._y = battle_soul.y-480/size/2;
+	camera._angle +=1;
+}
+if (inRange(GetTimer(), 9240,9890))
+{
+	bone0.x = 320+sin(time*0.05)*180;
+	bone1.x = 320-sin(time*0.05)*180;
+	bone0.image_angle = 90+sin(time*0.05)*30;
+	bone1.image_angle = 90-sin(time*0.05)*30;
+}
+if (inRange(GetTimer(), 9240,9800, 40))
+{
+	upRB(2.5, 50,0);
+}
+if (time == 9890)
+{
+	TweenFire(camera, EaseOutSine, 0, false, 0 , 60, "_x", camera._x, 0);
+	TweenFire(camera, EaseOutSine, 0, false, 0 , 60, "_y", camera._y, 0);
+	TweenFire(camera, EaseOutBack, 0, false, 0 , 60, "_angle", camera._angle%360-360, 0);
+	TweenFire(camera, EaseOutBack, 0, false, 0 , 60, "scale_x", camera.scale_x, 1);
+	TweenFire(camera, EaseOutBack, 0, false, 0 , 60, "scale_y", camera.scale_y, 1);
+	instance_destroy(bone0);
+	instance_destroy(bone1);
+	with(battle_board)
+	{
+		TweenFire(id, EaseOutBack, 0, false, 0 , 60, "left", left, 65);
+		TweenFire(id, EaseOutBack, 0, false, 0 , 60, "right", right, 65);
+		TweenFire(id, EaseOutBack, 0, false, 0 , 60, "down", down, 65);
+		TweenFire(id, EaseOutBack, 0, false, 0 , 60, "up", up, 65);
+	}
+	Battle_SetSoul(battle_soul_red);
+}
+if (inRange(GetTimer(), 9990,10700, 4))
+{
+
+	
+	if (time < (10270))
+	{
+		var _angle = -time*4;
+	}
+	else
+	{
+		var _angle = time*4;
+	}
+	var _length = 100;
+	Battle_MakeBlaster(320+lengthdir_x(_length+360, _angle),320+lengthdir_y(_length+360, _angle),320+lengthdir_x(_length, _angle),320+lengthdir_y(_length, _angle), _angle-90, _angle-90, 3, 1,2, 10, 30, 0);
+}
+if (time == 10700)
+{
+	fader.color = c_black;
+	Fader_Fade(0, 1, 180);
+}
+if (time == 10700+180)
+{
+	instance_destroy(oCtt3BackGround);
+	instance_create_depth(0,0,0,oCtt3BackGround1);
+	Fader_Fade(1, 0, 180);
 }
 room_speed = 60
