@@ -1664,4 +1664,9 @@ if (time == 10700+180)
 	instance_create_depth(0,0,0,oCtt3BackGround1);
 	Fader_Fade(1, 0, 180);
 }
+
+if (time == 10700+180+180)
+{
+	instance_create_depth(0,0,0,oAnimation1);
+}
 room_speed = 60

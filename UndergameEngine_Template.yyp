@@ -345,7 +345,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"UndergameEngine_Template",
   "resources":[
@@ -584,6 +584,7 @@
     {"id":{"name":"oCoroutineManager","path":"objects/oCoroutineManager/oCoroutineManager.yy",},},
     {"id":{"name":"oCtt3BackGround","path":"objects/oCtt3BackGround/oCtt3BackGround.yy",},},
     {"id":{"name":"oCtt3BackGround1","path":"objects/oCtt3BackGround1/oCtt3BackGround1.yy",},},
+    {"id":{"name":"oEffect","path":"objects/oEffect/oEffect.yy",},},
     {"id":{"name":"oLiquid","path":"objects/oLiquid/oLiquid.yy",},},
     {"id":{"name":"oLiquidWave","path":"objects/oLiquidWave/oLiquidWave.yy",},},
     {"id":{"name":"open_bilibili","path":"objects/open_bilibili/open_bilibili.yy",},},

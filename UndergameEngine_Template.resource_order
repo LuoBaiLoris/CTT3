@@ -503,6 +503,7 @@
     {"name":"oCoroutineManager","order":6,"path":"objects/oCoroutineManager/oCoroutineManager.yy",},
     {"name":"oCtt3BackGround","order":30,"path":"objects/oCtt3BackGround/oCtt3BackGround.yy",},
     {"name":"oCtt3BackGround1","order":32,"path":"objects/oCtt3BackGround1/oCtt3BackGround1.yy",},
+    {"name":"oEffect","order":33,"path":"objects/oEffect/oEffect.yy",},
     {"name":"oLiquid","order":19,"path":"objects/oLiquid/oLiquid.yy",},
     {"name":"oLiquidWave","order":20,"path":"objects/oLiquidWave/oLiquidWave.yy",},
     {"name":"open_youtube","order":1,"path":"objects/open_youtube/open_youtube.yy",},
